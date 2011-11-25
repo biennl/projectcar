@@ -21,7 +21,8 @@ import webapp.WebappPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link webapp.impl.RadioButtonImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link webapp.impl.RadioButtonImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link webapp.impl.RadioButtonImpl#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,9 +53,35 @@ public class RadioButtonImpl extends ControlImpl implements RadioButton {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public EList<ListElement> getOptions() {
-		return (EList<ListElement>)eGet(WebappPackage.Literals.RADIO_BUTTON__OPTIONS, true);
+	public String getValue() {
+		return (String)eGet(WebappPackage.Literals.RADIO_BUTTON__VALUE, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		eSet(WebappPackage.Literals.RADIO_BUTTON__VALUE, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getText() {
+		return (String)eGet(WebappPackage.Literals.RADIO_BUTTON__TEXT, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setText(String newText) {
+		eSet(WebappPackage.Literals.RADIO_BUTTON__TEXT, newText);
 	}
 
 } //RadioButtonImpl

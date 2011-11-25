@@ -584,13 +584,22 @@ public interface WebappPackage extends EPackage {
 	int RADIO_BUTTON__NAME = CONTROL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_BUTTON__OPTIONS = CONTROL_FEATURE_COUNT + 0;
+	int RADIO_BUTTON__VALUE = CONTROL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_BUTTON__TEXT = CONTROL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Radio Button</em>' class.
@@ -599,7 +608,7 @@ public interface WebappPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_BUTTON_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
+	int RADIO_BUTTON_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link webapp.impl.CheckBoxImpl <em>Check Box</em>}' class.
@@ -1147,15 +1156,26 @@ public interface WebappPackage extends EPackage {
 	EClass getRadioButton();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link webapp.RadioButton#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the attribute '{@link webapp.RadioButton#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Options</em>'.
-	 * @see webapp.RadioButton#getOptions()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see webapp.RadioButton#getValue()
 	 * @see #getRadioButton()
 	 * @generated
 	 */
-	EReference getRadioButton_Options();
+	EAttribute getRadioButton_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link webapp.RadioButton#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see webapp.RadioButton#getText()
+	 * @see #getRadioButton()
+	 * @generated
+	 */
+	EAttribute getRadioButton_Text();
 
 	/**
 	 * Returns the meta object for class '{@link webapp.CheckBox <em>Check Box</em>}'.
@@ -1525,12 +1545,20 @@ public interface WebappPackage extends EPackage {
 		EClass RADIO_BUTTON = eINSTANCE.getRadioButton();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RADIO_BUTTON__OPTIONS = eINSTANCE.getRadioButton_Options();
+		EAttribute RADIO_BUTTON__VALUE = eINSTANCE.getRadioButton_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RADIO_BUTTON__TEXT = eINSTANCE.getRadioButton_Text();
 
 		/**
 		 * The meta object literal for the '{@link webapp.impl.CheckBoxImpl <em>Check Box</em>}' class.

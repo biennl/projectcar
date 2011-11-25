@@ -43,7 +43,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//ListElement/value"/>
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//RadioButton">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//RadioButton/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//RadioButton/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//RadioButton/text"/>
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//CheckBox">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//CheckBox/text"/>
