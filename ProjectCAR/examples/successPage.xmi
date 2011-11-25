@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<webapp:NormalPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://webapp/1.0" xsi:schemaLocation="http://webapp/1.0 ../model/WebApp.ecore" name="success" title="Success"/>
