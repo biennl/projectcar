@@ -24,8 +24,9 @@ public class NormalPageFactory
   protected final String TEXT_3 = NL + "\t\t<div>" + NL + "\t\t\t<a href=\"";
   protected final String TEXT_4 = ".do\"><bean:message key=\"";
   protected final String TEXT_5 = ".text\"/></a>" + NL + "\t\t</div>" + NL + "\t";
-  protected final String TEXT_6 = NL + "\t";
-  protected final String TEXT_7 = NL + "</body>" + NL + "</html>" + NL + "$";
+  protected final String TEXT_6 = NL + "\t\t<div>" + NL + "\t\t\t";
+  protected final String TEXT_7 = NL + "\t\t</div>" + NL + "\t";
+  protected final String TEXT_8 = NL + "</body>" + NL + "</html>" + NL + "$";
 
   public String generate(Object argument)
   {
@@ -45,8 +46,10 @@ public class NormalPageFactory
     stringBuffer.append(TEXT_5);
     }else if(control instanceof Label){
     stringBuffer.append(TEXT_6);
-    }}
+    stringBuffer.append(((Label)control).getText());
     stringBuffer.append(TEXT_7);
+    }}
+    stringBuffer.append(TEXT_8);
     }}
     return stringBuffer.toString();
   }

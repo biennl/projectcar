@@ -18,6 +18,9 @@ class="NormalPageFactory" imports ="java.util.Iterator org.eclipse.emf.common.ut
 			<a href="<$=((Link)control).getDestination().getName()$>.do"><bean:message key="<$=control.getName()$>.text"/></a>
 		</div>
 	<$}else if(control instanceof Label){$>
+		<div>
+			<$=((Label)control).getText()$>
+		</div>
 	<$}}$>
 </body>
 </html>

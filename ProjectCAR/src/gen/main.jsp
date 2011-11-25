@@ -9,6 +9,10 @@
 </head>
 <body>
 		<div>
+			Welcome to project CAR 2011!
+		</div>
+	
+		<div>
 			<a href="addContact.do"><bean:message key="lAddContact.text"/></a>
 		</div>
 	

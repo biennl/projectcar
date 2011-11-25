@@ -1,0 +1,12 @@
+<%@ jet package="generator.website" class="ActionsFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.*;"%>
+<% DynamicWebApp webApp = (DynamicWebApp) argument; 
+	for(Page p : webApp.getPages()){
+		if(p instanceof NormalPage){%>
+package org.lip6.struts.servletAction;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.*;
+
+<%}}%>

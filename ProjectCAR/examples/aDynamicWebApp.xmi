@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
 <webapp:DynamicWebApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://webapp/1.0" xsi:schemaLocation="http://webapp/1.0 ../model/WebApp.ecore" name="TutorialStruts">
   <pages xsi:type="webapp:NormalPage" name="main" title="Main Page" default="true">
-    <controls xsi:type="webapp:Link" id="1" name="lAddContact" text="Add new contact" destination="//@pages.3"/>
-    <controls xsi:type="webapp:Link" id="2" name="lUpdateContact" text="Update a contact" destination="//@pages.4"/>
-    <controls xsi:type="webapp:Link" id="3" name="lDeleteContact" text="Delete a contact" destination="//@pages.5"/>
+    <controls xsi:type="webapp:Label" id="1" name="lbWelcome" text="Welcome to project CAR 2011!"/>
+    <controls xsi:type="webapp:Link" id="2" name="lAddContact" text="Add new contact" destination="//@pages.3"/>
+    <controls xsi:type="webapp:Link" id="3" name="lUpdateContact" text="Update a contact" destination="//@pages.4"/>
+    <controls xsi:type="webapp:Link" id="4" name="lDeleteContact" text="Delete a contact" destination="//@pages.5"/>
   </pages>
   <pages xsi:type="webapp:NormalPage" name="error" title="Error!"/>
   <pages xsi:type="webapp:NormalPage" name="success" title="Success!">

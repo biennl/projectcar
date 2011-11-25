@@ -8,5 +8,9 @@
 <title><bean:message key="success.title"/></title>
 </head>
 <body>
+		<div>
+			Your action has been done successfully!
+		</div>
+	
 </body>
 </html>
