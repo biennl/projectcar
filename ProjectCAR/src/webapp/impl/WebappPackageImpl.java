@@ -417,7 +417,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * @generated
 	 */
 	public EAttribute getRadioButton_Value() {
-		return (EAttribute)radioButtonEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)radioButtonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -426,7 +426,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * @generated
 	 */
 	public EAttribute getRadioButton_Text() {
-		return (EAttribute)radioButtonEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)radioButtonEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
