@@ -2,6 +2,7 @@ package webapp.tools;
 
 import generator.website.NormalPageFactory;
 import generator.website.ResourcesFileFactory;
+import generator.website.StrutsConfigFactory;
 import generator.website.WebConfigToXML;
 
 import java.io.BufferedWriter;
@@ -73,6 +74,11 @@ public class WebAppSerializer {
 				NormalPageFactory npage = (NormalPageFactory) generator;
 				writer.write(npage.generate(model));
 			}
+			else if(generator instanceof StrutsConfigFactory)
+			{
+				StrutsConfigFactory conf = (StrutsConfigFactory) generator;
+				writer.write(conf.generate(model));
+			}
 			writer.close();
 			output.close();
 		} catch (IOException e) {
@@ -116,14 +122,16 @@ public class WebAppSerializer {
 
 	public static void main(String[] args) {
 		File f = new File("examples/aDynamicWebApp.xmi");
-		WebAppSerializer sel = new WebAppSerializer();
-		DynamicWebApp app = sel.load(f);
+		WebAppSerializer serializer = new WebAppSerializer();
+		DynamicWebApp app = serializer.load(f);
 
-		 sel.writeFile(app, new WebConfigToXML(), "src/gen/web.xml");
-		 sel.writeFile(app, new ResourcesFileFactory(),
+		serializer.writeFile(app, new WebConfigToXML(), "src/gen/web.xml");
+		serializer.writeFile(app, new ResourcesFileFactory(),
 		 "src/gen/Resources.properties");
-		 sel.writeFile(app, new NormalPageFactory(), "src/gen/main.jsp");
-		sel.generateNormalPage(app);
+		serializer.writeFile(app, new NormalPageFactory(), "src/gen/main.jsp");
+		serializer.generateNormalPage(app);
+		
+		serializer.writeFile(app,new StrutsConfigFactory(), "src/gen/struts-config.xml");
 
 	}
 }
