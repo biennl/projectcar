@@ -6,7 +6,9 @@
     <controls xsi:type="webapp:Link" id="3" name="lDeleteContact" text="Delete a contact" destination="//@pages.5"/>
   </pages>
   <pages xsi:type="webapp:NormalPage" name="error" title="Error!"/>
-  <pages xsi:type="webapp:NormalPage" name="success" title="Success!"/>
+  <pages xsi:type="webapp:NormalPage" name="success" title="Success!">
+    <controls xsi:type="webapp:Label" id="1" name="lbInfo" text="Your action has been done successfully!"/>
+  </pages>
   <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.2" errorTarget="//@pages.1">
     <controls xsi:type="webapp:Label" id="1" name="lbID" text="Contact ID"/>
     <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30"/>
