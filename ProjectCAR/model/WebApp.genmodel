@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ProjectCAR/src"
+    modelPluginID="ProjectCAR" modelName="WebApp" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+    rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" reflectiveDelegation="true"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>WebApp.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Webapp" disposableProviderFactory="true" ecorePackage="WebApp.ecore#/">
+    <genClasses image="false" ecoreClass="WebApp.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Page/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Page/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Page/default"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//FormPage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebApp.ecore#//FormPage/successTarget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebApp.ecore#//FormPage/errorTarget"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//FormPage/controls"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//NormalPage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//NormalPage/controls"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="WebApp.ecore#//Control">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Control/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Control/name"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//Label"/>
+    <genClasses ecoreClass="WebApp.ecore#//Link">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebApp.ecore#//Link/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//SubmitButton"/>
+    <genClasses ecoreClass="WebApp.ecore#//TextBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/maxLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/size"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//DropDownList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//DropDownList/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//ListElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//ListElement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//RadioButton">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//RadioButton/options"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//CheckBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//CheckBox/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="WebApp.ecore#//NormalControl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//NormalControl/text"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//DynamicWebApp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//DynamicWebApp/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//DynamicWebApp/pages"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="WebApp.ecore#//FormButton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//FormButton/text"/>
+    </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//ResetButton"/>
+    <genClasses ecoreClass="WebApp.ecore#//NormalButton"/>
+  </genPackages>
+</genmodel:GenModel>

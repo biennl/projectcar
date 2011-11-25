@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<webapp:FormPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://webapp/1.0" xsi:schemaLocation="http://webapp/1.0 ../model/WebApp.ecore" name="Contact Creation" title="Create new contact">
+  <successTarget href="successPage.xmi#/"/>
+  <errorTarget href="errorPage.xmi#/"/>
+  <controls xsi:type="webapp:Label" id="1" name="lbID" text="Contact ID"/>
+  <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30"/>
+  <controls xsi:type="webapp:Label" id="3" name="lbFirstName" text="First Name"/>
+  <controls xsi:type="webapp:TextBox" id="4" name="tbFirstName" text="" maxLength="30" size="30"/>
+  <controls xsi:type="webapp:Label" id="5" name="lbLastName" text="Last Name"/>
+  <controls xsi:type="webapp:TextBox" id="6" name="tbLastName" maxLength="30" size="30"/>
+  <controls xsi:type="webapp:Label" id="7" name="lbEmail" text="Email Address"/>
+  <controls xsi:type="webapp:TextBox" id="8" name="tbEmail" text="" maxLength="30" size="30"/>
+  <controls xsi:type="webapp:Button" id="9" name="btnSubmit" text="Submit" isSubmit="true"/>
+</webapp:FormPage>

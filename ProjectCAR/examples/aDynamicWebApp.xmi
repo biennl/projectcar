@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<webapp:DynamicWebApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://webapp/1.0" xsi:schemaLocation="http://webapp/1.0 ../model/WebApp.ecore" name="TutorialStruts">
+  <pages xsi:type="webapp:NormalPage" name="main" title="Main Page" default="true">
+    <controls xsi:type="webapp:Link" id="1" name="lAddContact" text="Add new contact" destination="//@pages.3"/>
+    <controls xsi:type="webapp:Link" id="2" name="lUpdateContact" text="Update a contact" destination="//@pages.4"/>
+    <controls xsi:type="webapp:Link" id="3" name="lDeleteContact" text="Delete a contact" destination="//@pages.5"/>
+  </pages>
+  <pages xsi:type="webapp:NormalPage" name="error" title="Error!"/>
+  <pages xsi:type="webapp:NormalPage" name="success" title="Success!"/>
+  <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.2" errorTarget="//@pages.1">
+    <controls xsi:type="webapp:Label" id="1" name="lbID" text="Contact ID"/>
+    <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:Label" id="3" name="lbFirstName" text="First Name"/>
+    <controls xsi:type="webapp:TextBox" id="4" name="tbFirstName" text="" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:Label" id="5" name="lbLastName" text="Last Name"/>
+    <controls xsi:type="webapp:TextBox" id="6" name="tbLastName" text="" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:Label" id="7" name="lbEmail" text="Email address"/>
+    <controls xsi:type="webapp:TextBox" id="8" name="tbEmail" text="" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:SubmitButton" id="9" name="btnSubmit" text="Submit"/>
+    <controls xsi:type="webapp:ResetButton" id="10" name="btnReset" text="Reset"/>
+  </pages>
+  <pages xsi:type="webapp:FormPage" name="updateContact" title="Update a contact" successTarget="//@pages.2" errorTarget="//@pages.1">
+    <controls xsi:type="webapp:Label" id="1" name="lb" text="lb"/>
+  </pages>
+  <pages xsi:type="webapp:FormPage" name="deleteContact" title="Delete a contact" successTarget="//@pages.2" errorTarget="//@pages.1">
+    <controls xsi:type="webapp:Label" id="1" name="lb" text="lb"/>
+  </pages>
+</webapp:DynamicWebApp>

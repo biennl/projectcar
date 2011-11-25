@@ -1,0 +1,22 @@
+<%@ jet package="generator.website"
+class="ResourcesFileFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.* java.io.FileWriter java.io.BufferedWriter java.io.IOException;"%>
+<% DynamicWebApp webApp = (DynamicWebApp) argument; %>
+	<%for (Page p : webApp.getPages()){
+		String pageName = p.getName();%>
+<%=pageName+".title="+p.getTitle()%>
+		<%if(p instanceof NormalPage){
+			for(NormalControl c : ((NormalPage)p).getControls()){%>
+<%=pageName+"."+c.getName()+".text="+c.getText()%>
+			<%}
+		} else if(p instanceof FormPage){
+			for(Control c : ((FormPage)p).getControls()){
+				String controlText="";
+				if(c instanceof FormButton)
+					controlText = ((FormButton)c).getText();
+				else if(c instanceof NormalControl)
+					controlText = ((NormalControl)c).getText();
+				if(!controlText.isEmpty()){%>
+<%=pageName+"."+c.getName()+".text="+controlText%>
+			<%}}
+		%>
+	<%}}%>
