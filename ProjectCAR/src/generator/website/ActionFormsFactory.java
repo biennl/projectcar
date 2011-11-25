@@ -4,21 +4,21 @@ import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 import webapp.*;;
 
-public class ActionsFactory
+public class ActionFormsFactory
 {
   protected static String nl;
-  public static synchronized ActionsFactory create(String lineSeparator)
+  public static synchronized ActionFormsFactory create(String lineSeparator)
   {
     nl = lineSeparator;
-    ActionsFactory result = new ActionsFactory();
+    ActionFormsFactory result = new ActionFormsFactory();
     nl = null;
     return result;
   }
 
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
   protected final String TEXT_1 = "package ";
-  protected final String TEXT_2 = ".servlets;" + NL + "" + NL + "import javax.servlet.http.HttpServletRequest;" + NL + "import javax.servlet.http.HttpServletResponse;" + NL + "import org.apache.struts.action.*;" + NL + "public class ";
-  protected final String TEXT_3 = "Action extends Action {" + NL + "\tpublic ActionForward execute(ActionMapping mapping, ActionForm form," + NL + "\t\t\tHttpServletRequest request, HttpServletResponse response)" + NL + "\t\t\tthrows Exception {" + NL + "\t}" + NL + "}" + NL + "$";
+  protected final String TEXT_2 = ".servlets;" + NL + "" + NL + "import javax.servlet.http.HttpServletRequest;" + NL + "import org.apache.struts.action.*;" + NL + "public class ";
+  protected final String TEXT_3 = "ValidationForm extends ActionForm {" + NL + "\tprivate static final long serialVersionUID = 1L;" + NL + "\t@Override" + NL + "\tpublic ActionErrors validate(ActionMapping mapping," + NL + "\t\t\tHttpServletRequest request) {" + NL + "\t}" + NL + "}" + NL + "$";
 
   public String generate(Object argument)
   {

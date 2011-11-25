@@ -1,5 +1,7 @@
 package webapp.tools;
 
+import generator.website.ActionFormsFactory;
+import generator.website.ActionsFactory;
 import generator.website.NormalPageFactory;
 import generator.website.ResourcesFileFactory;
 import generator.website.StrutsConfigFactory;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import webapp.DynamicWebApp;
+import webapp.FormPage;
 import webapp.NormalPage;
 import webapp.Page;
 import webapp.WebappPackage;
@@ -73,9 +76,7 @@ public class WebAppSerializer {
 			} else if (generator instanceof NormalPageFactory) {
 				NormalPageFactory npage = (NormalPageFactory) generator;
 				writer.write(npage.generate(model));
-			}
-			else if(generator instanceof StrutsConfigFactory)
-			{
+			} else if (generator instanceof StrutsConfigFactory) {
 				StrutsConfigFactory conf = (StrutsConfigFactory) generator;
 				writer.write(conf.generate(model));
 			}
@@ -120,6 +121,80 @@ public class WebAppSerializer {
 		}
 	}
 
+	public void generateAction(DynamicWebApp app) {
+		ActionsFactory aFactory = new ActionsFactory();
+		String sources = aFactory.generate(app);
+		ArrayList<String> codeJavas = new ArrayList<String>();
+		int count = 0;
+		for (int i = 0; i < sources.length(); i++) {
+			if (sources.charAt(i) == '$') {
+				String str = sources.substring(count, i - 1);
+				codeJavas.add(str);
+				count = i + 1;
+			}
+		}
+
+		ArrayList<String> nameJavaFiles = new ArrayList<String>();
+		for (Page p : app.getPages()) {
+			if (p instanceof FormPage) {
+				nameJavaFiles.add(p.getName().substring(0, 1).toUpperCase()
+						+ p.getName().substring(1) + "Action");
+			}
+		}
+		FileWriter output;
+		BufferedWriter writer;
+		System.out.println("Creating web.xml");
+		for (int i = 0; i < nameJavaFiles.size(); i++) {
+			try {
+				output = new FileWriter("src/gen/" + nameJavaFiles.get(i)
+						+ ".java");
+				writer = new BufferedWriter(output);
+				writer.write(codeJavas.get(i));
+				writer.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void generateActionForm(DynamicWebApp app) {
+		ActionFormsFactory aFactory = new ActionFormsFactory();
+		String sources = aFactory.generate(app);
+		ArrayList<String> codeJavas = new ArrayList<String>();
+		int count = 0;
+		for (int i = 0; i < sources.length(); i++) {
+			if (sources.charAt(i) == '$') {
+				String str = sources.substring(count, i - 1);
+				codeJavas.add(str);
+				count = i + 1;
+			}
+		}
+
+		ArrayList<String> nameJavaFiles = new ArrayList<String>();
+		for (Page p : app.getPages()) {
+			if (p instanceof FormPage) {
+				nameJavaFiles.add(p.getName().substring(0, 1).toUpperCase()
+						+ p.getName().substring(1) + "ValidationForm");
+			}
+		}
+		FileWriter output;
+		BufferedWriter writer;
+		System.out.println("Creating web.xml");
+		for (int i = 0; i < nameJavaFiles.size(); i++) {
+			try {
+				output = new FileWriter("src/gen/" + nameJavaFiles.get(i)
+						+ ".java");
+				writer = new BufferedWriter(output);
+				writer.write(codeJavas.get(i));
+				writer.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		File f = new File("examples/aDynamicWebApp.xmi");
 		WebAppSerializer serializer = new WebAppSerializer();
@@ -127,11 +202,12 @@ public class WebAppSerializer {
 
 		serializer.writeFile(app, new WebConfigToXML(), "src/gen/web.xml");
 		serializer.writeFile(app, new ResourcesFileFactory(),
-		 "src/gen/Resources.properties");
+				"src/gen/Resources.properties");
 		serializer.writeFile(app, new NormalPageFactory(), "src/gen/main.jsp");
+		serializer.writeFile(app, new StrutsConfigFactory(),
+				"src/gen/struts-config.xml");
 		serializer.generateNormalPage(app);
-		
-		serializer.writeFile(app,new StrutsConfigFactory(), "src/gen/struts-config.xml");
-
+		serializer.generateAction(app);
+		serializer.generateActionForm(app);
 	}
 }

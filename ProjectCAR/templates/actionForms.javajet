@@ -1,0 +1,18 @@
+<%@ jet package="generator.website" class="ActionFormsFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.*;"%>
+<% DynamicWebApp webApp = (DynamicWebApp) argument; 
+	for(Page p : webApp.getPages()){
+		if(p instanceof FormPage){
+			String name=p.getName().substring(0,1).toUpperCase()+p.getName().substring(1);%>
+package <%=webApp.getName()%>.servlets;
+
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.*;
+public class <%=name%>ValidationForm extends ActionForm {
+	private static final long serialVersionUID = 1L;
+	@Override
+	public ActionErrors validate(ActionMapping mapping,
+			HttpServletRequest request) {
+	}
+}
+$
+<%}}%>
