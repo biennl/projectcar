@@ -2,6 +2,7 @@ package webapp.tools;
 
 import generator.website.ActionFormsFactory;
 import generator.website.ActionsFactory;
+import generator.website.FormPageFactory;
 import generator.website.NormalPageFactory;
 import generator.website.ResourcesFileFactory;
 import generator.website.StrutsConfigFactory;
@@ -84,6 +85,44 @@ public class WebAppSerializer {
 			output.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+public void generateFormPages(DynamicWebApp app) {
+		
+		FormPageFactory npageFac = new FormPageFactory();
+		String sources = npageFac.generate(app);
+		
+		ArrayList<String> codePages = new ArrayList<String>();
+		int count = 0;
+		for (int i = 0; i < sources.length(); i++) {
+			if (sources.charAt(i) == '$') {
+				String str = sources.substring(count, i - 1);
+				codePages.add(str);
+				count = i + 1;
+			}
+		}
+		ArrayList<String> namePages = new ArrayList<String>();
+				
+		for (Page p : app.getPages()) {
+			if (p instanceof FormPage) {
+				namePages.add(p.getName());
+			}
+		}
+		
+				
+		FileWriter output;
+		BufferedWriter writer;
+		System.out.println("generating pages ...");
+		for (int i = 0; i < namePages.size(); i++) {
+			try {
+				output = new FileWriter("src/gen/" + namePages.get(i) + ".jsp");
+				writer = new BufferedWriter(output);
+				writer.write(codePages.get(i));
+				writer.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -210,5 +249,10 @@ public class WebAppSerializer {
 		serializer.generateNormalPage(app);
 		serializer.generateAction(app);
 		serializer.generateActionForm(app);
+		
+		//generating form pages
+		FormPageFactory formFactory = new FormPageFactory();
+		serializer.generateFormPages(app);
+		
 	}
 }
