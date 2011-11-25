@@ -103,7 +103,7 @@ public class WebAppSerializer {
 		System.out.println("Creating web.xml");
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
-				output = new FileWriter("src/" + namePages.get(i) + ".jsp");
+				output = new FileWriter("src/gen/" + namePages.get(i) + ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
 				writer.close();
@@ -119,10 +119,10 @@ public class WebAppSerializer {
 		WebAppSerializer sel = new WebAppSerializer();
 		DynamicWebApp app = sel.load(f);
 
-		// sel.writeFile(app, new WebConfigToXML(), "src/web.xml");
-		// sel.writeFile(app, new ResourcesFileFactory(),
-		// "src/Resources.properties");
-		// sel.writeFile(app, new NormalPageFactory(), "src/main.jsp");
+		 sel.writeFile(app, new WebConfigToXML(), "src/gen/web.xml");
+		 sel.writeFile(app, new ResourcesFileFactory(),
+		 "src/gen/Resources.properties");
+		 sel.writeFile(app, new NormalPageFactory(), "src/gen/main.jsp");
 		sel.generateNormalPage(app);
 
 	}
