@@ -15,7 +15,7 @@ class="NormalPageFactory" imports ="java.util.Iterator org.eclipse.emf.common.ut
 <body><$for(NormalControl control : ((NormalPage)p).getControls()){
 		if(control instanceof Link){$>
 		<div>
-			<a href="<$=((Link)control).getDestination().getName()$>"><bean:message key="<$=control.getName()$>.text"/></a>
+			<a href="<$=((Link)control).getDestination().getName()$>Link.do"><bean:message key="<$=p.getName()$>.<$=control.getName()$>.text"/></a>
 		</div>
 	<$}else if(control instanceof Label){$>
 		<div>

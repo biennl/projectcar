@@ -13,15 +13,15 @@
 		</div>
 	
 		<div>
-			<a href="addContact"><bean:message key="lAddContact.text"/></a>
+			<a href="addContactLink.do"><bean:message key="main.lAddContact.text"/></a>
 		</div>
 	
 		<div>
-			<a href="updateContact"><bean:message key="lUpdateContact.text"/></a>
+			<a href="updateContactLink.do"><bean:message key="main.lUpdateContact.text"/></a>
 		</div>
 	
 		<div>
-			<a href="deleteContact"><bean:message key="lDeleteContact.text"/></a>
+			<a href="deleteContactLink.do"><bean:message key="main.lDeleteContact.text"/></a>
 		</div>
 	
 </body>

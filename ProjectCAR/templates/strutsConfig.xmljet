@@ -1,12 +1,11 @@
 <%@ jet package="generator.website"  class="StrutsConfigFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.*"%>
-
 <% DynamicWebApp dwa = (DynamicWebApp) argument; %>
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE struts-config PUBLIC
 "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
 "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 <struts-config>
-<% String action=""; %>
+<% String action="", formbean = ""; %>
 <% for(Page p : dwa.getPages())
 {
 	if( p instanceof NormalPage )
@@ -18,7 +17,7 @@
 			if (control instanceof Link)
 			{
 				Link link = (Link)control;
-				action +="\n <action path=\"/"+ link.getDestination().getName()+"\" forward =\"/pages/"+ link.getDestination().getName()+".jsp\" >";
+				action +="\n <action path=\"/"+ link.getDestination().getName()+"Link\" forward =\"/pages/"+ link.getDestination().getName()+".jsp\" />";
 			}
 		}		
 		
@@ -27,24 +26,27 @@
 			
 		NormalPage success =((FormPage)p).getSuccessTarget();
 		NormalPage error = ((FormPage)p).getErrorTarget();
+		String name=p.getName().substring(0,1).toUpperCase()+p.getName().substring(1);
 		
-		action += "\n<action path=\""+p.getName()+"\"" +" type=\"servlets."+p.getName()+"Action\"" + " scope=\"request\" > " ;
+		action += "\n<action path=\""+p.getName()+"\"" +" type=\"servlets."+name+"Action\" "; 
+		action += "name=\""+p.getName()+"ValidationForm\" scope=\"request\" > " ;
 		if( success != null)
 		{
-			action +="\n <forward name=\""+ success.getName()+"\" path =\"/pages/"+ success.getName()+".jsp\" >";
+			action +="\n <forward name=\""+ success.getName()+"\" path =\"/pages/"+ success.getName()+".jsp\" />";
 		}
 		if( error != null)
 		{
-			action +="\n <forward name=\""+ error.getName()+"\" path =\"/pages/"+ error.getName()+".jsp\" >";
+			action +="\n <forward name=\""+ error.getName()+"\" path =\"/pages/"+ error.getName()+".jsp\" />";
 		}
 		action += "\n</action>";
- %>
- <form-beans>
-	<form-bean name="<%=p.getName()%>ValidationForm" type="actionForm.<%=p.getName()%>ValidationForm"/>
-</form-beans>
-<%}%>
-<%}%>
+ 
+	formbean += "<form-bean name=\""+p.getName()+"ValidationForm\" type=\"actionForm."+name+"ValidationForm\"/>\n";
 
+	}%>
+<%}%>
+<form-beans>
+<%=formbean%>
+</form-beans>
 <action-mappings>
 <%=action%>
 </action-mappings>

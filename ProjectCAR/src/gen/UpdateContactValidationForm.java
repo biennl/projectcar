@@ -1,4 +1,4 @@
-package TutorialStruts.servlets;
+package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
@@ -7,5 +7,7 @@ public class UpdateContactValidationForm extends ActionForm {
 	@Override
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
+			//TO BE COMPLETED ...
+			return null;
 	}
 }

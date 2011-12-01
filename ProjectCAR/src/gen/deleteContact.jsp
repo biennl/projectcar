@@ -13,7 +13,7 @@
  <html:base/>
 </head>
 <body bgcolor="white">
- <html:form action="deleteContact" >
+ <html:form action="deleteContact.do" >
  <html:errors/>
    <table>
         <tr>
@@ -21,5 +21,7 @@
  		  <font size="4">Please Enter the Following Details</font>
  		</tr>
 <tr><td><label for="1">lb</label></td> 
+</table>
+</html:form>
 </body>
-</html>
+</html:html>

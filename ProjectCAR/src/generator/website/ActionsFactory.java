@@ -16,9 +16,8 @@ public class ActionsFactory
   }
 
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
-  protected final String TEXT_1 = "package ";
-  protected final String TEXT_2 = ".servlets;" + NL + "" + NL + "import javax.servlet.http.HttpServletRequest;" + NL + "import javax.servlet.http.HttpServletResponse;" + NL + "import org.apache.struts.action.*;" + NL + "public class ";
-  protected final String TEXT_3 = "Action extends Action {" + NL + "\tpublic ActionForward execute(ActionMapping mapping, ActionForm form," + NL + "\t\t\tHttpServletRequest request, HttpServletResponse response)" + NL + "\t\t\tthrows Exception {" + NL + "\t}" + NL + "}" + NL + "$";
+  protected final String TEXT_1 = "package servlets;" + NL + "" + NL + "import javax.servlet.http.HttpServletRequest;" + NL + "import javax.servlet.http.HttpServletResponse;" + NL + "import org.apache.struts.action.*;" + NL + "public class ";
+  protected final String TEXT_2 = "Action extends Action {" + NL + "\tpublic ActionForward execute(ActionMapping mapping, ActionForm form," + NL + "\t\t\tHttpServletRequest request, HttpServletResponse response)" + NL + "\t\t\tthrows Exception {" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\treturn null;" + NL + "\t}" + NL + "}" + NL + "$";
 
   public String generate(Object argument)
   {
@@ -28,10 +27,8 @@ public class ActionsFactory
 		if(p instanceof FormPage){
 			String name=p.getName().substring(0,1).toUpperCase()+p.getName().substring(1);
     stringBuffer.append(TEXT_1);
-    stringBuffer.append(webApp.getName());
-    stringBuffer.append(TEXT_2);
     stringBuffer.append(name);
-    stringBuffer.append(TEXT_3);
+    stringBuffer.append(TEXT_2);
     }}
     return stringBuffer.toString();
   }
