@@ -20,4 +20,15 @@
           <td align="center" colspan="2">
  		  <font size="4">Please Enter the Following Details</font>
  		</tr>
-	
+<tr><td><label for="1">Contact ID</label></td>
+<td><html:text property="tbID" size="30" maxlength="30" styleId="1"</td></tr>
+<tr><td><label for="2">First Name</label></td>
+<td><html:text property="tbFirstName" size="30" maxlength="30" styleId="2"</td></tr>
+<tr><td><label for="3">Last Name</label></td>
+<td><html:text property="tbLastName" size="30" maxlength="30" styleId="3"</td></tr>
+<tr><td><label for="4">Email address</label></td>
+<td><html:text property="tbEmail" size="30" maxlength="30" styleId="4"</td></tr>
+<td><html:submit  property="btnSubmit">Submit</html:submit></td></tr>
+<td><html:reset  property="btnReset">Reset</html:reset></td></tr> 
+</body>
+</html>

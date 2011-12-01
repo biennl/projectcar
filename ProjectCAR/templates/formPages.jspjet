@@ -27,14 +27,50 @@ startTag="<$" endTag="$>"%>
           <td align="center" colspan="2">
  		  <font size="4">Please Enter the Following Details</font>
  		</tr>
- <% for(int i=0; i< fp.getControls.length; i++) {
- 
- 	Co
- 	if ()
- }
- %>
-	
+ <$ int count = 0;for(int i=0; i< fp.getControls().size(); i++) {
+ 	
+ 	String balise = "";
+ 	Control control = fp.getControls().get(i);
+ 	if (control instanceof Label)
+ 	{	
+ 		Label label =(Label)control;count++;
+ 		balise +="<tr><td><label for=\""+(count)+"\">"+label.getText()+"</label></td>";
+ 	}else if(control instanceof TextBox) {
+ 		balise +="<td><html:text property=\""+ control.getName()+ "\" size=\""+ ((TextBox)control).getSize()+ "\"";
+ 		balise +=" maxlength=\""+ ((TextBox)control).getMaxLength()+ "\" styleId=\""+(count)+"\"";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof CheckBox) {
+ 		balise +="<td><html:checkbox "+" property=\""+ control.getName()+ "\"";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof SubmitButton) {
+ 		balise +="<td><html:submit "+" property=\""+ control.getName()+ "\">"+((SubmitButton)control).getText()+"</html:submit>";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof ResetButton) {
+ 		balise +="<td><html:reset "+" property=\""+ control.getName()+ "\">"+((ResetButton)control).getText()+"</html:reset>";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof NormalButton) {
+ 		balise +="<td><html:button "+" property=\""+ control.getName()+ "\">"+((NormalButton)control).getText()+"</html:button>";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof Link) {
+ 		balise +="<td><html:link "+" property=\""+ control.getName()+ "\">"+((Link)control).getText()+"</html:link>";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof RadioButton) {
+ 		balise +="<html:radio "+" property=\""+ control.getName()+ "\" value="+((RadioButton)control).getValue()+ ">"+((RadioButton)control).getText();
+ 		balise +="</html:radio>";
+ 		balise +="</td></tr>";
+ 	}else if(control instanceof DropDownList) {
+ 		balise +="<td><html:select "+" property=\""+ control.getName()+ "\">";
+ 		DropDownList list = (DropDownList)control;
+ 		for(int j = 0; j< list.getElements().size(); i++)
+ 		{
+ 			balise += "<html:option value=\""+list.getElements().get(i).getValue()+"\">";
+ 			balise +=list.getElements().get(i).getValue()+"</html:option>";
+ 		} 
+ 		balise +="</html:select></td></tr>";
+ 	
 }$>
+<$=balise$>
+<$ }$> 
 </body>
 </html>
 $

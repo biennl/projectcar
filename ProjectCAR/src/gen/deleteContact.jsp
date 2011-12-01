@@ -9,15 +9,17 @@
 <html:html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><bean:message key="updateContact.title"/></title>
+<title><bean:message key="deleteContact.title"/></title>
  <html:base/>
 </head>
 <body bgcolor="white">
- <html:form action="updateContact" >
+ <html:form action="deleteContact" >
  <html:errors/>
    <table>
         <tr>
           <td align="center" colspan="2">
  		  <font size="4">Please Enter the Following Details</font>
  		</tr>
-	
+<tr><td><label for="1">lb</label></td> 
+</body>
+</html>
