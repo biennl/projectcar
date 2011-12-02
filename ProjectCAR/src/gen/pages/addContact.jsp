@@ -13,7 +13,7 @@
  <html:base/>
 </head>
 <body bgcolor="white">
- <html:form action="addContact.do" >
+ <html:form action="/addContact" >
  <html:errors/>
    <table>
         <tr>
