@@ -1,4 +1,4 @@
-<%@ jet package="generator.website" class="ActionFormsFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.*;"%>
+<%@ jet package="generator.website" class="ActionFormsFactory" imports ="java.util.Iterator java.util.* org.eclipse.emf.common.util.EList webapp.*;"%>
 <% DynamicWebApp webApp = (DynamicWebApp) argument; 
 	for(Page p : webApp.getPages()){
 		if(p instanceof FormPage){
@@ -7,9 +7,13 @@ package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
+
 public class <%=name%>ValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
-	<% String resetString = "" ; for(Control c : ((FormPage)p).getControls()){
+	<% String resetString = "" ; 
+	ArrayList<String> getters = new ArrayList<String> ();
+	
+	for(Control c : ((FormPage)p).getControls()){
 		if(c instanceof TextBox){%>
 	private String <%=c.getName()%>;
 	public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
@@ -18,7 +22,10 @@ public class <%=name%>ValidationForm extends ActionForm {
 	public void set<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(String val){
 		this.<%=c.getName()%> = val;
 	}
-	<%  resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";}}%>
+	<%  resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
+	getters.add(c.getName().substring(0,1).toUpperCase()+c.getName().substring(1));
+	
+	}}%>
 	
 	
 	@Override
@@ -31,6 +38,14 @@ public class <%=name%>ValidationForm extends ActionForm {
 			HttpServletRequest request) {
 			
 			ActionErrors errors = new ActionErrors(); 
+			
+			<% for(String getter : getters)
+			{%>
+				if (get<%=getter%>() == null || get<%=getter%>().length() < 1)
+				{
+					errors.add("<%=getter%>", new ActionMessage("<%=getter%> is required"));
+				}	
+			<%} %>
 			
 			//TO BE COMPLETED ...
 			

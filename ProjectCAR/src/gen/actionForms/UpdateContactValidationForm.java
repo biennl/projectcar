@@ -2,6 +2,7 @@ package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
+
 public class UpdateContactValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
 	
@@ -17,6 +18,8 @@ public class UpdateContactValidationForm extends ActionForm {
 			HttpServletRequest request) {
 			
 			ActionErrors errors = new ActionErrors(); 
+			
+			
 			
 			//TO BE COMPLETED ...
 			
