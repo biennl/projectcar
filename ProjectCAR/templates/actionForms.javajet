@@ -9,6 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
 public class <%=name%>ValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
+	<%for(Control c : ((FormPage)p).getControls()){
+		if(c instanceof TextBox){%>
+	private String <%=c.getName()%>;
+	public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
+		return this.<%=c.getName()%>;
+	}	
+	public void set<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(String val){
+		this.<%=c.getName()%> = val;
+	}
+	<%}}%>
 	@Override
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
