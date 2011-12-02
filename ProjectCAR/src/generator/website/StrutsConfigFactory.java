@@ -63,7 +63,7 @@ public class StrutsConfigFactory
 		}
 		action += "\n</action>";
  
-	formbean += "<form-bean name=\""+p.getName()+"ValidationForm\" type=\"actionForm."+name+"ValidationForm\"/>\n";
+	formbean += "<form-bean name=\""+p.getName()+"ValidationForm\" type=\"actionForms."+name+"ValidationForm\"/>\n";
 
 	}
     }
