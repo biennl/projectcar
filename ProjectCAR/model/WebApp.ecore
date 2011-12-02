@@ -61,4 +61,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResetButton" eSuperTypes="#//FormButton"/>
   <eClassifiers xsi:type="ecore:EClass" name="NormalButton" eSuperTypes="#//NormalControl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PasswordBox" eSuperTypes="#//TextBox"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EmailBox" eSuperTypes="#//TextBox"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DateBox" eSuperTypes="#//TextBox">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="#//DateFormat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DateFormat">
+    <eLiterals name="DayMonthYear" literal="ddmmyyyy"/>
+    <eLiterals name="YearMonthDay" value="1" literal="yyyymmdd"/>
+  </eClassifiers>
 </ecore:EPackage>
