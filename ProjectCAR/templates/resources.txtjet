@@ -11,12 +11,18 @@ class="ResourcesFileFactory" imports ="java.util.Iterator org.eclipse.emf.common
 		} else if(p instanceof FormPage){
 			for(Control c : ((FormPage)p).getControls()){
 				String controlText="";
+				String errorText="";
 				if(c instanceof FormButton)
 					controlText = ((FormButton)c).getText();
 				else if(c instanceof NormalControl)
 					controlText = ((NormalControl)c).getText();
+				else if(c instanceof TextBox)
+					errorText = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
 				if(!controlText.isEmpty()){%>
 <%=pageName+"."+c.getName()+".text="+controlText%>
-			<%}}
+			<%}
+				if(!errorText.isEmpty()){%>
+<%="error."+pageName+"."+errorText+"="+errorText+" is required | "%>				
+				<%}}
 		%>
 	<%}}%>

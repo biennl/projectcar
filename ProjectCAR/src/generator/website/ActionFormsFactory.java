@@ -30,9 +30,10 @@ public class ActionFormsFactory
   protected final String TEXT_11 = NL + "\t\t\t\tif (get";
   protected final String TEXT_12 = "() == null || get";
   protected final String TEXT_13 = "().length() < 1)" + NL + "\t\t\t\t{" + NL + "\t\t\t\t\terrors.add(\"";
-  protected final String TEXT_14 = "\", new ActionMessage(\"";
-  protected final String TEXT_15 = " is required\"));" + NL + "\t\t\t\t}\t" + NL + "\t\t\t";
-  protected final String TEXT_16 = NL + "\t\t\t" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\t" + NL + "\t\t\treturn errors;" + NL + "\t}" + NL + "}" + NL + "$";
+  protected final String TEXT_14 = "\", new ActionMessage(\"error.";
+  protected final String TEXT_15 = ".";
+  protected final String TEXT_16 = "\"));" + NL + "\t\t\t\t}\t" + NL + "\t\t\t";
+  protected final String TEXT_17 = NL + "\t\t\t" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\t" + NL + "\t\t\treturn errors;" + NL + "\t}" + NL + "}" + NL + "$";
 
   public String generate(Object argument)
   {
@@ -78,10 +79,12 @@ public class ActionFormsFactory
     stringBuffer.append(TEXT_13);
     stringBuffer.append(getter);
     stringBuffer.append(TEXT_14);
-    stringBuffer.append(getter);
+    stringBuffer.append(p.getName());
     stringBuffer.append(TEXT_15);
-    } 
+    stringBuffer.append(getter);
     stringBuffer.append(TEXT_16);
+    } 
+    stringBuffer.append(TEXT_17);
     }}
     return stringBuffer.toString();
   }

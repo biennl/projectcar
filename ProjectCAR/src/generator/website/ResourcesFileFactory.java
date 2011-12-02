@@ -26,7 +26,9 @@ public class ResourcesFileFactory
   protected final String TEXT_5 = NL + "\t\t\t";
   protected final String TEXT_6 = NL;
   protected final String TEXT_7 = NL + "\t\t\t";
-  protected final String TEXT_8 = NL + "\t";
+  protected final String TEXT_8 = NL;
+  protected final String TEXT_9 = "\t\t\t\t" + NL + "\t\t\t\t";
+  protected final String TEXT_10 = NL + "\t";
 
   public String generate(Object argument)
   {
@@ -47,17 +49,25 @@ public class ResourcesFileFactory
 		} else if(p instanceof FormPage){
 			for(Control c : ((FormPage)p).getControls()){
 				String controlText="";
+				String errorText="";
 				if(c instanceof FormButton)
 					controlText = ((FormButton)c).getText();
 				else if(c instanceof NormalControl)
 					controlText = ((NormalControl)c).getText();
+				else if(c instanceof TextBox)
+					errorText = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
 				if(!controlText.isEmpty()){
     stringBuffer.append(TEXT_6);
     stringBuffer.append(pageName+"."+c.getName()+".text="+controlText);
     stringBuffer.append(TEXT_7);
+    }
+				if(!errorText.isEmpty()){
+    stringBuffer.append(TEXT_8);
+    stringBuffer.append("error."+pageName+"."+errorText+"="+errorText+" is required | ");
+    stringBuffer.append(TEXT_9);
     }}
 		
-    stringBuffer.append(TEXT_8);
+    stringBuffer.append(TEXT_10);
     }}
     return stringBuffer.toString();
   }
