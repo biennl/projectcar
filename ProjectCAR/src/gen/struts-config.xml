@@ -7,6 +7,7 @@
 <form-bean name="addContactValidationForm" type="actionForms.AddContactValidationForm"/>
 <form-bean name="updateContactValidationForm" type="actionForms.UpdateContactValidationForm"/>
 <form-bean name="deleteContactValidationForm" type="actionForms.DeleteContactValidationForm"/>
+<form-bean name="loginValidationForm" type="actionForms.LoginValidationForm"/>
 
 </form-beans>
 <action-mappings>
@@ -24,6 +25,10 @@
 </action>
 <action path="/deleteContact" type="servlets.DeleteContactAction" input="/pages/deleteContact.jsp" name="deleteContactValidationForm" scope="request" > 
  <forward name="success" path ="/pages/success.jsp" />
+ <forward name="error" path ="/pages/error.jsp" />
+</action>
+<action path="/login" type="servlets.LoginAction" input="/pages/login.jsp" name="loginValidationForm" scope="request" > 
+ <forward name="main" path ="/pages/main.jsp" />
  <forward name="error" path ="/pages/error.jsp" />
 </action>
 </action-mappings>

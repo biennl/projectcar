@@ -47,6 +47,10 @@ public class FormPageFactory
  	{	
  		Label label =(Label)control;count++;
  		balise +="<tr><td><label for=\""+(count)+"\">"+label.getText()+"</label></td>";
+ 	}else if(control instanceof PasswordBox) {
+ 		balise +="<td><html:password property=\""+ control.getName()+ "\" size=\""+ ((PasswordBox)control).getSize()+ "\"";
+ 		balise +=" styleId=\""+(count)+"\"";
+ 		balise +="/></td></tr>";
  	}else if(control instanceof TextBox) {
  		balise +="<td><html:text property=\""+ control.getName()+ "\" size=\""+ ((TextBox)control).getSize()+ "\"";
  		balise +=" maxlength=\""+ ((TextBox)control).getMaxLength()+ "\" styleId=\""+(count)+"\"";
