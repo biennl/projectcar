@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <webapp:DynamicWebApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://webapp/1.0" xsi:schemaLocation="http://webapp/1.0 ../model/WebApp.ecore" name="TestGeneration">
-  <pages xsi:type="webapp:NormalPage" name="main" title="Main Page" default="true">
+  <pages xsi:type="webapp:NormalPage" name="main" title="Main Page">
     <controls xsi:type="webapp:Label" id="1" name="lbWelcome" text="Welcome to project CAR 2011!"/>
     <controls xsi:type="webapp:Link" id="2" name="lAddContact" text="Add new contact" destination="//@pages.3"/>
     <controls xsi:type="webapp:Link" id="3" name="lUpdateContact" text="Update a contact" destination="//@pages.4"/>
@@ -30,5 +30,13 @@
   </pages>
   <pages xsi:type="webapp:NormalPage" name="successAddContact" title="Success">
     <controls xsi:type="webapp:Label" id="1" name="lbInfo" text="Contact creation has been done successfully!"/>
+  </pages>
+  <pages xsi:type="webapp:FormPage" name="login" title="Please login!" default="true" successTarget="//@pages.0" errorTarget="//@pages.1">
+    <controls xsi:type="webapp:Label" id="1" name="lbUsername" text="User name"/>
+    <controls xsi:type="webapp:TextBox" id="2" name="tbUsername" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:Label" id="3" name="lbPass" text="Password"/>
+    <controls xsi:type="webapp:PasswordBox" id="4" name="tbPass" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:SubmitButton" id="5" name="btnSubmit" text="Submit"/>
+    <controls xsi:type="webapp:ResetButton" id="6" name="btnReset" text="Reset"/>
   </pages>
 </webapp:DynamicWebApp>
