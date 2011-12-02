@@ -4,9 +4,9 @@
 "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 <struts-config>
 <form-beans>
-<form-bean name="addContactValidationForm" type="actionForm.AddContactValidationForm"/>
-<form-bean name="updateContactValidationForm" type="actionForm.UpdateContactValidationForm"/>
-<form-bean name="deleteContactValidationForm" type="actionForm.DeleteContactValidationForm"/>
+<form-bean name="addContactValidationForm" type="actionForms.AddContactValidationForm"/>
+<form-bean name="updateContactValidationForm" type="actionForms.UpdateContactValidationForm"/>
+<form-bean name="deleteContactValidationForm" type="actionForms.DeleteContactValidationForm"/>
 
 </form-beans>
 <action-mappings>
