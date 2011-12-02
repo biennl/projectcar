@@ -48,7 +48,7 @@ public class WebAppSerializer {
 		WebConfigToXML test = new WebConfigToXML();
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Creating web.xml");
+		System.out.println("Generating web.xml");
 		try {
 			output = new FileWriter("web.xml");
 			writer = new BufferedWriter(output);
@@ -63,7 +63,7 @@ public class WebAppSerializer {
 	public void writeFile(Object model, Object generator, String filename) {
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Creating "+filename+" ... ");
+		System.out.println("Generating "+filename+" ... ");
 		try {
 			output = new FileWriter(filename);
 			writer = new BufferedWriter(output);
@@ -112,9 +112,10 @@ public void generateFormPages(DynamicWebApp app) {
 				
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("generating pages ...");
+		
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
+				System.out.println("Generating "+namePages.get(i) + ".jsp...");
 				output = new FileWriter("src/gen/pages/" + namePages.get(i) + ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
@@ -146,14 +147,15 @@ public void generateFormPages(DynamicWebApp app) {
 		}
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Creating web.xml");
+		
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
+				System.out.println("Generating "+namePages.get(i) + ".jsp ...");
 				output = new FileWriter("src/gen/pages/" + namePages.get(i) + ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
 				writer.close();
-				output.close();
+				output.close();				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -182,9 +184,10 @@ public void generateFormPages(DynamicWebApp app) {
 		}
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Creating web.xml");
+		
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
+				System.out.println("Generating "+nameJavaFiles.get(i)+" ...");
 				output = new FileWriter("src/gen/servlets/" + nameJavaFiles.get(i)
 						+ ".java");
 				writer = new BufferedWriter(output);
@@ -219,9 +222,10 @@ public void generateFormPages(DynamicWebApp app) {
 		}
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Creating web.xml");
+		
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
+				System.out.println("generating"+nameJavaFiles.get(i)+"... ");
 				output = new FileWriter("src/gen/actionForms/" + nameJavaFiles.get(i)
 						+ ".java");
 				writer = new BufferedWriter(output);
@@ -235,6 +239,7 @@ public void generateFormPages(DynamicWebApp app) {
 	}
 
 	public static void main(String[] args) {
+		
 		File f = new File("examples/aDynamicWebApp.xmi");
 		WebAppSerializer serializer = new WebAppSerializer();
 		DynamicWebApp app = serializer.load(f);
@@ -253,6 +258,8 @@ public void generateFormPages(DynamicWebApp app) {
 		//generating form pages
 		FormPageFactory formFactory = new FormPageFactory();
 		serializer.generateFormPages(app);
+		
+		System.out.println("\nGeneration completed successfully !!!");
 		
 	}
 }
