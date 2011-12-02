@@ -63,7 +63,7 @@ public class WebAppSerializer {
 	public void writeFile(Object model, Object generator, String filename) {
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Creating web.xml");
+		System.out.println("Creating "+filename+" ... ");
 		try {
 			output = new FileWriter(filename);
 			writer = new BufferedWriter(output);
@@ -115,7 +115,7 @@ public void generateFormPages(DynamicWebApp app) {
 		System.out.println("generating pages ...");
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
-				output = new FileWriter("src/gen/" + namePages.get(i) + ".jsp");
+				output = new FileWriter("src/gen/pages/" + namePages.get(i) + ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
 				writer.close();
@@ -149,7 +149,7 @@ public void generateFormPages(DynamicWebApp app) {
 		System.out.println("Creating web.xml");
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
-				output = new FileWriter("src/gen/" + namePages.get(i) + ".jsp");
+				output = new FileWriter("src/gen/pages/" + namePages.get(i) + ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
 				writer.close();
@@ -185,7 +185,7 @@ public void generateFormPages(DynamicWebApp app) {
 		System.out.println("Creating web.xml");
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
-				output = new FileWriter("src/gen/" + nameJavaFiles.get(i)
+				output = new FileWriter("src/gen/servlets/" + nameJavaFiles.get(i)
 						+ ".java");
 				writer = new BufferedWriter(output);
 				writer.write(codeJavas.get(i));
@@ -222,7 +222,7 @@ public void generateFormPages(DynamicWebApp app) {
 		System.out.println("Creating web.xml");
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
-				output = new FileWriter("src/gen/" + nameJavaFiles.get(i)
+				output = new FileWriter("src/gen/actionForms/" + nameJavaFiles.get(i)
 						+ ".java");
 				writer = new BufferedWriter(output);
 				writer.write(codeJavas.get(i));
