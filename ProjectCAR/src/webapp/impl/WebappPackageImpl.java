@@ -8,14 +8,18 @@ package webapp.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import webapp.CheckBox;
 import webapp.Control;
+import webapp.DateBox;
+import webapp.DateFormat;
 import webapp.DropDownList;
 import webapp.DynamicWebApp;
+import webapp.EmailBox;
 import webapp.FormButton;
 import webapp.FormPage;
 import webapp.Label;
@@ -25,6 +29,7 @@ import webapp.NormalButton;
 import webapp.NormalControl;
 import webapp.NormalPage;
 import webapp.Page;
+import webapp.PasswordBox;
 import webapp.RadioButton;
 import webapp.ResetButton;
 import webapp.SubmitButton;
@@ -139,6 +144,34 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * @generated
 	 */
 	private EClass normalButtonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass passwordBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass emailBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dateBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dateFormatEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -518,6 +551,51 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPasswordBox() {
+		return passwordBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEmailBox() {
+		return emailBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDateBox() {
+		return dateBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDateBox_Format() {
+		return (EAttribute)dateBoxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDateFormat() {
+		return dateFormatEEnum;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -598,6 +676,16 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		resetButtonEClass = createEClass(RESET_BUTTON);
 
 		normalButtonEClass = createEClass(NORMAL_BUTTON);
+
+		passwordBoxEClass = createEClass(PASSWORD_BOX);
+
+		emailBoxEClass = createEClass(EMAIL_BOX);
+
+		dateBoxEClass = createEClass(DATE_BOX);
+		createEAttribute(dateBoxEClass, DATE_BOX__FORMAT);
+
+		// Create enums
+		dateFormatEEnum = createEEnum(DATE_FORMAT);
 	}
 
 	/**
@@ -643,6 +731,9 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		formButtonEClass.getESuperTypes().add(this.getControl());
 		resetButtonEClass.getESuperTypes().add(this.getFormButton());
 		normalButtonEClass.getESuperTypes().add(this.getNormalControl());
+		passwordBoxEClass.getESuperTypes().add(this.getTextBox());
+		emailBoxEClass.getESuperTypes().add(this.getTextBox());
+		dateBoxEClass.getESuperTypes().add(this.getTextBox());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(pageEClass, Page.class, "Page", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -700,6 +791,18 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEClass(resetButtonEClass, ResetButton.class, "ResetButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(normalButtonEClass, NormalButton.class, "NormalButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(passwordBoxEClass, PasswordBox.class, "PasswordBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(emailBoxEClass, EmailBox.class, "EmailBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dateBoxEClass, DateBox.class, "DateBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateBox_Format(), this.getDateFormat(), "format", null, 0, 1, DateBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(dateFormatEEnum, DateFormat.class, "DateFormat");
+		addEEnumLiteral(dateFormatEEnum, DateFormat.DAY_MONTH_YEAR);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.YEAR_MONTH_DAY);
 
 		// Create resource
 		createResource(eNS_URI);

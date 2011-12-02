@@ -9,6 +9,10 @@
   <foreignModel>WebApp.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Webapp" disposableProviderFactory="true" ecorePackage="WebApp.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="WebApp.ecore#//DateFormat">
+      <genEnumLiterals ecoreEnumLiteral="WebApp.ecore#//DateFormat/DayMonthYear"/>
+      <genEnumLiterals ecoreEnumLiteral="WebApp.ecore#//DateFormat/YearMonthDay"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="WebApp.ecore#//Page">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Page/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//Page/title"/>
@@ -61,5 +65,10 @@
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//ResetButton"/>
     <genClasses ecoreClass="WebApp.ecore#//NormalButton"/>
+    <genClasses ecoreClass="WebApp.ecore#//PasswordBox"/>
+    <genClasses ecoreClass="WebApp.ecore#//EmailBox"/>
+    <genClasses ecoreClass="WebApp.ecore#//DateBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//DateBox/format"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

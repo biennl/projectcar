@@ -7,6 +7,7 @@
 package webapp.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -73,8 +74,41 @@ public class WebappFactoryImpl extends EFactoryImpl implements WebappFactory {
 			case WebappPackage.DYNAMIC_WEB_APP: return (EObject)createDynamicWebApp();
 			case WebappPackage.RESET_BUTTON: return (EObject)createResetButton();
 			case WebappPackage.NORMAL_BUTTON: return (EObject)createNormalButton();
+			case WebappPackage.PASSWORD_BOX: return (EObject)createPasswordBox();
+			case WebappPackage.EMAIL_BOX: return (EObject)createEmailBox();
+			case WebappPackage.DATE_BOX: return (EObject)createDateBox();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case WebappPackage.DATE_FORMAT:
+				return createDateFormatFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case WebappPackage.DATE_FORMAT:
+				return convertDateFormatToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -206,6 +240,56 @@ public class WebappFactoryImpl extends EFactoryImpl implements WebappFactory {
 	public NormalButton createNormalButton() {
 		NormalButtonImpl normalButton = new NormalButtonImpl();
 		return normalButton;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PasswordBox createPasswordBox() {
+		PasswordBoxImpl passwordBox = new PasswordBoxImpl();
+		return passwordBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EmailBox createEmailBox() {
+		EmailBoxImpl emailBox = new EmailBoxImpl();
+		return emailBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateBox createDateBox() {
+		DateBoxImpl dateBox = new DateBoxImpl();
+		return dateBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateFormat createDateFormatFromString(EDataType eDataType, String initialValue) {
+		DateFormat result = DateFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDateFormatToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

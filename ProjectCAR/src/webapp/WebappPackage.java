@@ -8,6 +8,7 @@ package webapp;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -881,6 +882,218 @@ public interface WebappPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link webapp.impl.PasswordBoxImpl <em>Password Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see webapp.impl.PasswordBoxImpl
+	 * @see webapp.impl.WebappPackageImpl#getPasswordBox()
+	 * @generated
+	 */
+	int PASSWORD_BOX = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX__ID = TEXT_BOX__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX__NAME = TEXT_BOX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX__TEXT = TEXT_BOX__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX__MAX_LENGTH = TEXT_BOX__MAX_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX__SIZE = TEXT_BOX__SIZE;
+
+	/**
+	 * The number of structural features of the '<em>Password Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX_FEATURE_COUNT = TEXT_BOX_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link webapp.impl.EmailBoxImpl <em>Email Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see webapp.impl.EmailBoxImpl
+	 * @see webapp.impl.WebappPackageImpl#getEmailBox()
+	 * @generated
+	 */
+	int EMAIL_BOX = 18;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX__ID = TEXT_BOX__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX__NAME = TEXT_BOX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX__TEXT = TEXT_BOX__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX__MAX_LENGTH = TEXT_BOX__MAX_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX__SIZE = TEXT_BOX__SIZE;
+
+	/**
+	 * The number of structural features of the '<em>Email Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX_FEATURE_COUNT = TEXT_BOX_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link webapp.impl.DateBoxImpl <em>Date Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see webapp.impl.DateBoxImpl
+	 * @see webapp.impl.WebappPackageImpl#getDateBox()
+	 * @generated
+	 */
+	int DATE_BOX = 19;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__ID = TEXT_BOX__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__NAME = TEXT_BOX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__TEXT = TEXT_BOX__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__MAX_LENGTH = TEXT_BOX__MAX_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__SIZE = TEXT_BOX__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__FORMAT = TEXT_BOX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Date Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX_FEATURE_COUNT = TEXT_BOX_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link webapp.DateFormat <em>Date Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see webapp.DateFormat
+	 * @see webapp.impl.WebappPackageImpl#getDateFormat()
+	 * @generated
+	 */
+	int DATE_FORMAT = 20;
+
+
+	/**
 	 * Returns the meta object for class '{@link webapp.Page <em>Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1293,6 +1506,57 @@ public interface WebappPackage extends EPackage {
 	EClass getNormalButton();
 
 	/**
+	 * Returns the meta object for class '{@link webapp.PasswordBox <em>Password Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Password Box</em>'.
+	 * @see webapp.PasswordBox
+	 * @generated
+	 */
+	EClass getPasswordBox();
+
+	/**
+	 * Returns the meta object for class '{@link webapp.EmailBox <em>Email Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Email Box</em>'.
+	 * @see webapp.EmailBox
+	 * @generated
+	 */
+	EClass getEmailBox();
+
+	/**
+	 * Returns the meta object for class '{@link webapp.DateBox <em>Date Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Date Box</em>'.
+	 * @see webapp.DateBox
+	 * @generated
+	 */
+	EClass getDateBox();
+
+	/**
+	 * Returns the meta object for the attribute '{@link webapp.DateBox#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see webapp.DateBox#getFormat()
+	 * @see #getDateBox()
+	 * @generated
+	 */
+	EAttribute getDateBox_Format();
+
+	/**
+	 * Returns the meta object for enum '{@link webapp.DateFormat <em>Date Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Date Format</em>'.
+	 * @see webapp.DateFormat
+	 * @generated
+	 */
+	EEnum getDateFormat();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1659,6 +1923,54 @@ public interface WebappPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NORMAL_BUTTON = eINSTANCE.getNormalButton();
+
+		/**
+		 * The meta object literal for the '{@link webapp.impl.PasswordBoxImpl <em>Password Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see webapp.impl.PasswordBoxImpl
+		 * @see webapp.impl.WebappPackageImpl#getPasswordBox()
+		 * @generated
+		 */
+		EClass PASSWORD_BOX = eINSTANCE.getPasswordBox();
+
+		/**
+		 * The meta object literal for the '{@link webapp.impl.EmailBoxImpl <em>Email Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see webapp.impl.EmailBoxImpl
+		 * @see webapp.impl.WebappPackageImpl#getEmailBox()
+		 * @generated
+		 */
+		EClass EMAIL_BOX = eINSTANCE.getEmailBox();
+
+		/**
+		 * The meta object literal for the '{@link webapp.impl.DateBoxImpl <em>Date Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see webapp.impl.DateBoxImpl
+		 * @see webapp.impl.WebappPackageImpl#getDateBox()
+		 * @generated
+		 */
+		EClass DATE_BOX = eINSTANCE.getDateBox();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATE_BOX__FORMAT = eINSTANCE.getDateBox_Format();
+
+		/**
+		 * The meta object literal for the '{@link webapp.DateFormat <em>Date Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see webapp.DateFormat
+		 * @see webapp.impl.WebappPackageImpl#getDateFormat()
+		 * @generated
+		 */
+		EEnum DATE_FORMAT = eINSTANCE.getDateFormat();
 
 	}
 
