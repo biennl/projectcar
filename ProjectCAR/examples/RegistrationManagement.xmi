@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<webapp:DynamicWebApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://webapp/1.0" xsi:schemaLocation="http://webapp/1.0 ../model/WebApp.ecore">
+  <pages xsi:type="webapp:NormalPage" name="welcome" title="welcome to the registration management" default="true">
+    <controls xsi:type="webapp:Link" id="1" name="toRegistration" text="to register, clic here" destination="//@pages.1"/>
+  </pages>
+  <pages xsi:type="webapp:FormPage" name="registration" title="welcome to the registration page" successTarget="//@pages.2" errorTarget="//@pages.3">
+    <controls xsi:type="webapp:TextBox" id="1" name="login" maxLength="50"/>
+  </pages>
+  <pages xsi:type="webapp:NormalPage" name="registrationsuccess" title="wel done, you are now registerd"/>
+  <pages xsi:type="webapp:NormalPage" name="registrationerror" title="Sorry, your registration failed"/>
+</webapp:DynamicWebApp>

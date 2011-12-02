@@ -140,6 +140,18 @@ public class WebappAdapterFactory extends AdapterFactoryImpl {
 				return createNormalButtonAdapter();
 			}
 			@Override
+			public Adapter casePasswordBox(PasswordBox object) {
+				return createPasswordBoxAdapter();
+			}
+			@Override
+			public Adapter caseEmailBox(EmailBox object) {
+				return createEmailBoxAdapter();
+			}
+			@Override
+			public Adapter caseDateBox(DateBox object) {
+				return createDateBoxAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -394,6 +406,48 @@ public class WebappAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNormalButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link webapp.PasswordBox <em>Password Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see webapp.PasswordBox
+	 * @generated
+	 */
+	public Adapter createPasswordBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link webapp.EmailBox <em>Email Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see webapp.EmailBox
+	 * @generated
+	 */
+	public Adapter createEmailBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link webapp.DateBox <em>Date Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see webapp.DateBox
+	 * @generated
+	 */
+	public Adapter createDateBoxAdapter() {
 		return null;
 	}
 

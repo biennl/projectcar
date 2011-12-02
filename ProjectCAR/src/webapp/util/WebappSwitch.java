@@ -207,6 +207,30 @@ public class WebappSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WebappPackage.PASSWORD_BOX: {
+				PasswordBox passwordBox = (PasswordBox)theEObject;
+				T result = casePasswordBox(passwordBox);
+				if (result == null) result = caseTextBox(passwordBox);
+				if (result == null) result = caseControl(passwordBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.EMAIL_BOX: {
+				EmailBox emailBox = (EmailBox)theEObject;
+				T result = caseEmailBox(emailBox);
+				if (result == null) result = caseTextBox(emailBox);
+				if (result == null) result = caseControl(emailBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.DATE_BOX: {
+				DateBox dateBox = (DateBox)theEObject;
+				T result = caseDateBox(dateBox);
+				if (result == null) result = caseTextBox(dateBox);
+				if (result == null) result = caseControl(dateBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -463,6 +487,51 @@ public class WebappSwitch<T> {
 	 * @generated
 	 */
 	public T caseNormalButton(NormalButton object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Password Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Password Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePasswordBox(PasswordBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Email Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Email Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEmailBox(EmailBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateBox(DateBox object) {
 		return null;
 	}
 

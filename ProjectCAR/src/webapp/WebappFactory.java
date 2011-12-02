@@ -143,6 +143,33 @@ public interface WebappFactory extends EFactory {
 	NormalButton createNormalButton();
 
 	/**
+	 * Returns a new object of class '<em>Password Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Password Box</em>'.
+	 * @generated
+	 */
+	PasswordBox createPasswordBox();
+
+	/**
+	 * Returns a new object of class '<em>Email Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Email Box</em>'.
+	 * @generated
+	 */
+	EmailBox createEmailBox();
+
+	/**
+	 * Returns a new object of class '<em>Date Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Date Box</em>'.
+	 * @generated
+	 */
+	DateBox createDateBox();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
