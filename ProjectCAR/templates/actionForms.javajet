@@ -43,7 +43,7 @@ public class <%=name%>ValidationForm extends ActionForm {
 			{%>
 				if (get<%=getter%>() == null || get<%=getter%>().length() < 1)
 				{
-					errors.add("<%=getter%>", new ActionMessage("<%=getter%> is required"));
+					errors.add("<%=getter%>", new ActionMessage("error.<%=p.getName()%>.<%=getter%>"));
 				}	
 			<%} %>
 			

@@ -58,22 +58,22 @@ public class AddContactValidationForm extends ActionForm {
 			
 				if (getTbID() == null || getTbID().length() < 1)
 				{
-					errors.add("TbID", new ActionMessage("TbID is required"));
+					errors.add("TbID", new ActionMessage("error.addContact.TbID"));
 				}	
 			
 				if (getTbFirstName() == null || getTbFirstName().length() < 1)
 				{
-					errors.add("TbFirstName", new ActionMessage("TbFirstName is required"));
+					errors.add("TbFirstName", new ActionMessage("error.addContact.TbFirstName"));
 				}	
 			
 				if (getTbLastName() == null || getTbLastName().length() < 1)
 				{
-					errors.add("TbLastName", new ActionMessage("TbLastName is required"));
+					errors.add("TbLastName", new ActionMessage("error.addContact.TbLastName"));
 				}	
 			
 				if (getTbEmail() == null || getTbEmail().length() < 1)
 				{
-					errors.add("TbEmail", new ActionMessage("TbEmail is required"));
+					errors.add("TbEmail", new ActionMessage("error.addContact.TbEmail"));
 				}	
 			
 			
