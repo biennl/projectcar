@@ -20,7 +20,7 @@ startTag="<$" endTag="$>"%>
  <html:base/>
 </head>
 <body bgcolor="white">
- <html:form action="<$=p.getName()$>.do" >
+ <html:form action="/<$=p.getName()$>" >
  <html:errors/>
    <table>
         <tr>

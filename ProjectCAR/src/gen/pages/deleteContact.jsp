@@ -13,7 +13,7 @@
  <html:base/>
 </head>
 <body bgcolor="white">
- <html:form action="deleteContact.do" >
+ <html:form action="/deleteContact" >
  <html:errors/>
    <table>
         <tr>
