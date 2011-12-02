@@ -2,6 +2,7 @@ package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
+
 public class AddContactValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
 	
@@ -54,8 +55,27 @@ public class AddContactValidationForm extends ActionForm {
 			
 			ActionErrors errors = new ActionErrors(); 
 			
-			//TO BE COMPLETED ...
 			
+				if (getTbID() == null || getTbID().length() < 1)
+				{
+					errors.add("TbID", new ActionMessage("TbID is required"));
+				}	
+			
+				if (getTbFirstName() == null || getTbFirstName().length() < 1)
+				{
+					errors.add("TbFirstName", new ActionMessage("TbFirstName is required"));
+				}	
+			
+				if (getTbLastName() == null || getTbLastName().length() < 1)
+				{
+					errors.add("TbLastName", new ActionMessage("TbLastName is required"));
+				}	
+			
+				if (getTbEmail() == null || getTbEmail().length() < 1)
+				{
+					errors.add("TbEmail", new ActionMessage("TbEmail is required"));
+				}	
+						
 			return errors;
 	}
 }
