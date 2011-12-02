@@ -37,10 +37,25 @@ public class AddContactValidationForm extends ActionForm {
 		this.tbEmail = val;
 	}
 	
+	
+	
+	@Override
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		setTbID(null);
+		setTbFirstName(null);
+		setTbLastName(null);
+		setTbEmail(null);
+		
+	}
+	
 	@Override
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
+			
+			ActionErrors errors = new ActionErrors(); 
+			
 			//TO BE COMPLETED ...
-			return null;
+			
+			return errors;
 	}
 }

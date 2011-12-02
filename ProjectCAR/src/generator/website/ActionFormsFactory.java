@@ -24,7 +24,8 @@ public class ActionFormsFactory
   protected final String TEXT_6 = ";" + NL + "\t}\t" + NL + "\tpublic void set";
   protected final String TEXT_7 = "(String val){" + NL + "\t\tthis.";
   protected final String TEXT_8 = " = val;" + NL + "\t}" + NL + "\t";
-  protected final String TEXT_9 = NL + "\t@Override" + NL + "\tpublic ActionErrors validate(ActionMapping mapping," + NL + "\t\t\tHttpServletRequest request) {" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\treturn null;" + NL + "\t}" + NL + "}" + NL + "$";
+  protected final String TEXT_9 = NL + "\t" + NL + "\t" + NL + "\t@Override" + NL + "\tpublic void reset(ActionMapping mapping, HttpServletRequest request) {" + NL + "\t\t";
+  protected final String TEXT_10 = NL + "\t}" + NL + "\t" + NL + "\t@Override" + NL + "\tpublic ActionErrors validate(ActionMapping mapping," + NL + "\t\t\tHttpServletRequest request) {" + NL + "\t\t\t" + NL + "\t\t\tActionErrors errors = new ActionErrors(); " + NL + "\t\t\t" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\t" + NL + "\t\t\treturn errors;" + NL + "\t}" + NL + "}" + NL + "$";
 
   public String generate(Object argument)
   {
@@ -36,7 +37,7 @@ public class ActionFormsFactory
     stringBuffer.append(TEXT_1);
     stringBuffer.append(name);
     stringBuffer.append(TEXT_2);
-    for(Control c : ((FormPage)p).getControls()){
+     String resetString = "" ; for(Control c : ((FormPage)p).getControls()){
 		if(c instanceof TextBox){
     stringBuffer.append(TEXT_3);
     stringBuffer.append(c.getName());
@@ -51,8 +52,10 @@ public class ActionFormsFactory
     stringBuffer.append(TEXT_7);
     stringBuffer.append(c.getName());
     stringBuffer.append(TEXT_8);
-    }}
+      resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";}}
     stringBuffer.append(TEXT_9);
+    stringBuffer.append(resetString);
+    stringBuffer.append(TEXT_10);
     }}
     return stringBuffer.toString();
   }
