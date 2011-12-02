@@ -14,15 +14,15 @@
  <action path="/addContactLink" forward ="/pages/addContact.jsp" />
  <action path="/updateContactLink" forward ="/pages/updateContact.jsp" />
  <action path="/deleteContactLink" forward ="/pages/deleteContact.jsp" />
-<action path="addContact" type="servlets.AddContactAction" name="addContactValidationForm" scope="request" > 
+<action path="/addContact" type="servlets.AddContactAction" name="addContactValidationForm" scope="request" > 
  <forward name="success" path ="/pages/success.jsp" />
  <forward name="error" path ="/pages/error.jsp" />
 </action>
-<action path="updateContact" type="servlets.UpdateContactAction" name="updateContactValidationForm" scope="request" > 
+<action path="/updateContact" type="servlets.UpdateContactAction" name="updateContactValidationForm" scope="request" > 
  <forward name="success" path ="/pages/success.jsp" />
  <forward name="error" path ="/pages/error.jsp" />
 </action>
-<action path="deleteContact" type="servlets.DeleteContactAction" name="deleteContactValidationForm" scope="request" > 
+<action path="/deleteContact" type="servlets.DeleteContactAction" name="deleteContactValidationForm" scope="request" > 
  <forward name="success" path ="/pages/success.jsp" />
  <forward name="error" path ="/pages/error.jsp" />
 </action>
