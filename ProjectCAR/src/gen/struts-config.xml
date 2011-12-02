@@ -15,7 +15,7 @@
  <action path="/updateContactLink" forward ="/pages/updateContact.jsp" />
  <action path="/deleteContactLink" forward ="/pages/deleteContact.jsp" />
 <action path="/addContact" type="servlets.AddContactAction" name="addContactValidationForm" scope="request" > 
- <forward name="success" path ="/pages/success.jsp" />
+ <forward name="successAddContact" path ="/pages/successAddContact.jsp" />
  <forward name="error" path ="/pages/error.jsp" />
 </action>
 <action path="/updateContact" type="servlets.UpdateContactAction" name="updateContactValidationForm" scope="request" > 

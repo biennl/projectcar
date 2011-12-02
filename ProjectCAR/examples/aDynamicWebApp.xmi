@@ -10,7 +10,7 @@
   <pages xsi:type="webapp:NormalPage" name="success" title="Success!">
     <controls xsi:type="webapp:Label" id="1" name="lbInfo" text="Your action has been done successfully!"/>
   </pages>
-  <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.2" errorTarget="//@pages.1">
+  <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.6" errorTarget="//@pages.1">
     <controls xsi:type="webapp:Label" id="1" name="lbID" text="Contact ID"/>
     <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30"/>
     <controls xsi:type="webapp:Label" id="3" name="lbFirstName" text="First Name"/>
@@ -27,5 +27,8 @@
   </pages>
   <pages xsi:type="webapp:FormPage" name="deleteContact" title="Delete a contact" successTarget="//@pages.2" errorTarget="//@pages.1">
     <controls xsi:type="webapp:Label" id="1" name="lb" text="lb"/>
+  </pages>
+  <pages xsi:type="webapp:NormalPage" name="successAddContact" title="Success">
+    <controls xsi:type="webapp:Label" id="1" name="lbInfo" text="Contact creation has been done successfully!"/>
   </pages>
 </webapp:DynamicWebApp>
