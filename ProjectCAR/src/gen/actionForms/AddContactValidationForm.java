@@ -75,7 +75,10 @@ public class AddContactValidationForm extends ActionForm {
 				{
 					errors.add("TbEmail", new ActionMessage("TbEmail is required"));
 				}	
-						
+			
+			
+			//TO BE COMPLETED ...
+			
 			return errors;
 	}
 }
