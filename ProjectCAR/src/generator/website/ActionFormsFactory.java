@@ -33,7 +33,15 @@ public class ActionFormsFactory
   protected final String TEXT_14 = "\", new ActionMessage(\"error.";
   protected final String TEXT_15 = ".";
   protected final String TEXT_16 = "\"));" + NL + "\t\t\t\t}\t" + NL + "\t\t\t";
-  protected final String TEXT_17 = NL + "\t\t\t" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\t" + NL + "\t\t\treturn errors;" + NL + "\t}" + NL + "}" + NL + "$";
+  protected final String TEXT_17 = NL + "\t\t\t\t\tif (get";
+  protected final String TEXT_18 = "() == null || get";
+  protected final String TEXT_19 = "().length() < 1)" + NL + "\t\t\t\t\t{" + NL + "\t\t\t\t\t\terrors.add(\"";
+  protected final String TEXT_20 = "\", new ActionMessage(\"error.";
+  protected final String TEXT_21 = ".";
+  protected final String TEXT_22 = "\"));" + NL + "\t\t\t\t\t} else {" + NL + "\t\t\t\t\t\t//RegExpre" + NL + "\t\t\t\t\t}\t\t\t" + NL + "\t\t\t";
+  protected final String TEXT_23 = NL + "\t\t\t\tif(get";
+  protected final String TEXT_24 = "() != null)" + NL + "\t\t\t\t{" + NL + "\t\t\t\t\t//RegExpre" + NL + "\t\t\t\t}" + NL + "\t\t\t";
+  protected final String TEXT_25 = NL + "\t\t\t" + NL + "\t\t\t//TO BE COMPLETED ..." + NL + "\t\t\t" + NL + "\t\t\treturn errors;" + NL + "\t}" + NL + "}" + NL + "$";
 
   public String generate(Object argument)
   {
@@ -46,10 +54,11 @@ public class ActionFormsFactory
     stringBuffer.append(name);
     stringBuffer.append(TEXT_2);
      String resetString = "" ; 
-	ArrayList<String> getters = new ArrayList<String> ();
-	
+	ArrayList<TextBox> getters = new ArrayList<TextBox> ();
+		
 	for(Control c : ((FormPage)p).getControls()){
-		if(c instanceof TextBox){
+	
+	if(c instanceof TextBox){
     stringBuffer.append(TEXT_3);
     stringBuffer.append(c.getName());
     stringBuffer.append(TEXT_4);
@@ -64,15 +73,17 @@ public class ActionFormsFactory
     stringBuffer.append(c.getName());
     stringBuffer.append(TEXT_8);
       resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
-	if( ((TextBox)c).isRequired() )
-	getters.add(c.getName().substring(0,1).toUpperCase()+c.getName().substring(1));
-	
+	getters.add((TextBox)c);
+	//
 	}}
     stringBuffer.append(TEXT_9);
     stringBuffer.append(resetString);
     stringBuffer.append(TEXT_10);
-     for(String getter : getters)
+     for(TextBox c : getters)
 			{
+				String getter = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
+				if(((TextBox)c).isRequired() && !(c instanceof EmailBox)){				
+			
     stringBuffer.append(TEXT_11);
     stringBuffer.append(getter);
     stringBuffer.append(TEXT_12);
@@ -84,8 +95,27 @@ public class ActionFormsFactory
     stringBuffer.append(TEXT_15);
     stringBuffer.append(getter);
     stringBuffer.append(TEXT_16);
-    } 
+    } else if(c instanceof EmailBox){
+				if(((EmailBox)c).isRequired()){
     stringBuffer.append(TEXT_17);
+    stringBuffer.append(getter);
+    stringBuffer.append(TEXT_18);
+    stringBuffer.append(getter);
+    stringBuffer.append(TEXT_19);
+    stringBuffer.append(getter);
+    stringBuffer.append(TEXT_20);
+    stringBuffer.append(p.getName());
+    stringBuffer.append(TEXT_21);
+    stringBuffer.append(getter);
+    stringBuffer.append(TEXT_22);
+    } else {
+    stringBuffer.append(TEXT_23);
+    stringBuffer.append(getter);
+    stringBuffer.append(TEXT_24);
+    } 
+			}
+		}
+    stringBuffer.append(TEXT_25);
     }}
     return stringBuffer.toString();
   }

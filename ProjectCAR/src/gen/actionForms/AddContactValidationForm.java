@@ -61,10 +61,10 @@ public class AddContactValidationForm extends ActionForm {
 					errors.add("TbID", new ActionMessage("error.addContact.TbID"));
 				}	
 			
-				if (getTbEmail() == null || getTbEmail().length() < 1)
+				if(getTbEmail() != null)
 				{
-					errors.add("TbEmail", new ActionMessage("error.addContact.TbEmail"));
-				}	
+					//RegExpre
+				}
 			
 			
 			//TO BE COMPLETED ...
