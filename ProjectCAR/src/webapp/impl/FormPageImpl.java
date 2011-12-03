@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import webapp.Control;
 import webapp.FormPage;
+import webapp.Page;
 import webapp.NormalPage;
 import webapp.WebappPackage;
 
@@ -55,8 +56,8 @@ public class FormPageImpl extends PageImpl implements FormPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NormalPage getSuccessTarget() {
-		return (NormalPage)eGet(WebappPackage.Literals.FORM_PAGE__SUCCESS_TARGET, true);
+	public Page getSuccessTarget() {
+		return (Page)eGet(WebappPackage.Literals.FORM_PAGE__SUCCESS_TARGET, true);
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class FormPageImpl extends PageImpl implements FormPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSuccessTarget(NormalPage newSuccessTarget) {
+	public void setSuccessTarget(Page newSuccessTarget) {
 		eSet(WebappPackage.Literals.FORM_PAGE__SUCCESS_TARGET, newSuccessTarget);
 	}
 
@@ -73,8 +74,8 @@ public class FormPageImpl extends PageImpl implements FormPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NormalPage getErrorTarget() {
-		return (NormalPage)eGet(WebappPackage.Literals.FORM_PAGE__ERROR_TARGET, true);
+	public Page getErrorTarget() {
+		return (Page)eGet(WebappPackage.Literals.FORM_PAGE__ERROR_TARGET, true);
 	}
 
 	/**
@@ -82,7 +83,7 @@ public class FormPageImpl extends PageImpl implements FormPage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setErrorTarget(NormalPage newErrorTarget) {
+	public void setErrorTarget(Page newErrorTarget) {
 		eSet(WebappPackage.Literals.FORM_PAGE__ERROR_TARGET, newErrorTarget);
 	}
 

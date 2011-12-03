@@ -21,6 +21,7 @@ import webapp.WebappPackage;
  *   <li>{@link webapp.impl.TextBoxImpl#getText <em>Text</em>}</li>
  *   <li>{@link webapp.impl.TextBoxImpl#getMaxLength <em>Max Length</em>}</li>
  *   <li>{@link webapp.impl.TextBoxImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link webapp.impl.TextBoxImpl#isRequired <em>Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,6 +99,24 @@ public class TextBoxImpl extends ControlImpl implements TextBox {
 	 */
 	public void setSize(int newSize) {
 		eSet(WebappPackage.Literals.TEXT_BOX__SIZE, newSize);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRequired() {
+		return (Boolean)eGet(WebappPackage.Literals.TEXT_BOX__REQUIRED, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(boolean newRequired) {
+		eSet(WebappPackage.Literals.TEXT_BOX__REQUIRED, newRequired);
 	}
 
 } //TextBoxImpl

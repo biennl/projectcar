@@ -39,6 +39,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/maxLength"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/required"/>
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//DropDownList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//DropDownList/elements"/>

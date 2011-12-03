@@ -36,12 +36,12 @@ public interface FormPage extends Page {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Success Target</em>' reference.
-	 * @see #setSuccessTarget(NormalPage)
+	 * @see #setSuccessTarget(Page)
 	 * @see webapp.WebappPackage#getFormPage_SuccessTarget()
 	 * @model
 	 * @generated
 	 */
-	NormalPage getSuccessTarget();
+	Page getSuccessTarget();
 
 	/**
 	 * Sets the value of the '{@link webapp.FormPage#getSuccessTarget <em>Success Target</em>}' reference.
@@ -51,7 +51,7 @@ public interface FormPage extends Page {
 	 * @see #getSuccessTarget()
 	 * @generated
 	 */
-	void setSuccessTarget(NormalPage value);
+	void setSuccessTarget(Page value);
 
 	/**
 	 * Returns the value of the '<em><b>Error Target</b></em>' reference.
@@ -62,12 +62,12 @@ public interface FormPage extends Page {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Error Target</em>' reference.
-	 * @see #setErrorTarget(NormalPage)
+	 * @see #setErrorTarget(Page)
 	 * @see webapp.WebappPackage#getFormPage_ErrorTarget()
 	 * @model
 	 * @generated
 	 */
-	NormalPage getErrorTarget();
+	Page getErrorTarget();
 
 	/**
 	 * Sets the value of the '{@link webapp.FormPage#getErrorTarget <em>Error Target</em>}' reference.
@@ -77,7 +77,7 @@ public interface FormPage extends Page {
 	 * @see #getErrorTarget()
 	 * @generated
 	 */
-	void setErrorTarget(NormalPage value);
+	void setErrorTarget(Page value);
 
 	/**
 	 * Returns the value of the '<em><b>Controls</b></em>' containment reference list.

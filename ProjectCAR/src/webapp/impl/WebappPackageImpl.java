@@ -405,6 +405,15 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextBox_Required() {
+		return (EAttribute)textBoxEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -649,6 +658,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		createEAttribute(textBoxEClass, TEXT_BOX__TEXT);
 		createEAttribute(textBoxEClass, TEXT_BOX__MAX_LENGTH);
 		createEAttribute(textBoxEClass, TEXT_BOX__SIZE);
+		createEAttribute(textBoxEClass, TEXT_BOX__REQUIRED);
 
 		dropDownListEClass = createEClass(DROP_DOWN_LIST);
 		createEReference(dropDownListEClass, DROP_DOWN_LIST__ELEMENTS);
@@ -742,8 +752,8 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEAttribute(getPage_Default(), ecorePackage.getEBoolean(), "default", null, 1, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formPageEClass, FormPage.class, "FormPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFormPage_SuccessTarget(), this.getNormalPage(), null, "successTarget", null, 0, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormPage_ErrorTarget(), this.getNormalPage(), null, "errorTarget", null, 0, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormPage_SuccessTarget(), this.getPage(), null, "successTarget", null, 0, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormPage_ErrorTarget(), this.getPage(), null, "errorTarget", null, 0, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormPage_Controls(), this.getControl(), null, "controls", null, 1, -1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(normalPageEClass, NormalPage.class, "NormalPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -764,6 +774,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEAttribute(getTextBox_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextBox_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 0, 1, TextBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextBox_Size(), ecorePackage.getEInt(), "size", null, 0, 1, TextBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextBox_Required(), ecorePackage.getEBoolean(), "required", null, 1, 1, TextBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dropDownListEClass, DropDownList.class, "DropDownList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDropDownList_Elements(), this.getListElement(), null, "elements", null, 0, -1, DropDownList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

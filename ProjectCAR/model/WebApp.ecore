@@ -10,8 +10,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormPage" eSuperTypes="#//Page">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="successTarget" eType="#//NormalPage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="errorTarget" eType="#//NormalPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successTarget" eType="#//Page"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorTarget" eType="#//Page"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" lowerBound="1"
         upperBound="-1" eType="#//Control" containment="true"/>
   </eClassifiers>
@@ -33,6 +33,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DropDownList" eSuperTypes="#//Control">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"

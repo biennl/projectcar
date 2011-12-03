@@ -54,7 +54,7 @@ public class ResourcesFileFactory
 					controlText = ((FormButton)c).getText();
 				else if(c instanceof NormalControl)
 					controlText = ((NormalControl)c).getText();
-				else if(c instanceof TextBox)
+				else if ((c instanceof TextBox) && ((TextBox)c).isRequired() )
 					errorText = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
 				if(!controlText.isEmpty()){
     stringBuffer.append(TEXT_6);

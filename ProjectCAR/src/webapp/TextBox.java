@@ -18,6 +18,7 @@ package webapp;
  *   <li>{@link webapp.TextBox#getText <em>Text</em>}</li>
  *   <li>{@link webapp.TextBox#getMaxLength <em>Max Length</em>}</li>
  *   <li>{@link webapp.TextBox#getSize <em>Size</em>}</li>
+ *   <li>{@link webapp.TextBox#isRequired <em>Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,5 +104,31 @@ public interface TextBox extends Control {
 	 * @generated
 	 */
 	void setSize(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required</em>' attribute.
+	 * @see #setRequired(boolean)
+	 * @see webapp.WebappPackage#getTextBox_Required()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isRequired();
+
+	/**
+	 * Sets the value of the '{@link webapp.TextBox#isRequired <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Required</em>' attribute.
+	 * @see #isRequired()
+	 * @generated
+	 */
+	void setRequired(boolean value);
 
 } // TextBox

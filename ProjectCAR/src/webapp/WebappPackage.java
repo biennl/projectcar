@@ -474,13 +474,22 @@ public interface WebappPackage extends EPackage {
 	int TEXT_BOX__SIZE = CONTROL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_BOX__REQUIRED = CONTROL_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Text Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_BOX_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 3;
+	int TEXT_BOX_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link webapp.impl.DropDownListImpl <em>Drop Down List</em>}' class.
@@ -937,6 +946,15 @@ public interface WebappPackage extends EPackage {
 	int PASSWORD_BOX__SIZE = TEXT_BOX__SIZE;
 
 	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSWORD_BOX__REQUIRED = TEXT_BOX__REQUIRED;
+
+	/**
 	 * The number of structural features of the '<em>Password Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1001,6 +1019,15 @@ public interface WebappPackage extends EPackage {
 	int EMAIL_BOX__SIZE = TEXT_BOX__SIZE;
 
 	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_BOX__REQUIRED = TEXT_BOX__REQUIRED;
+
+	/**
 	 * The number of structural features of the '<em>Email Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1063,6 +1090,15 @@ public interface WebappPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_BOX__SIZE = TEXT_BOX__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_BOX__REQUIRED = TEXT_BOX__REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -1315,6 +1351,17 @@ public interface WebappPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTextBox_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link webapp.TextBox#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see webapp.TextBox#isRequired()
+	 * @see #getTextBox()
+	 * @generated
+	 */
+	EAttribute getTextBox_Required();
 
 	/**
 	 * Returns the meta object for class '{@link webapp.DropDownList <em>Drop Down List</em>}'.
@@ -1761,6 +1808,14 @@ public interface WebappPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_BOX__SIZE = eINSTANCE.getTextBox_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_BOX__REQUIRED = eINSTANCE.getTextBox_Required();
 
 		/**
 		 * The meta object literal for the '{@link webapp.impl.DropDownListImpl <em>Drop Down List</em>}' class.
