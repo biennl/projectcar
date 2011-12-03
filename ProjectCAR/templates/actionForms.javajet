@@ -11,10 +11,11 @@ import org.apache.struts.action.*;
 public class <%=name%>ValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
 	<% String resetString = "" ; 
-	ArrayList<String> getters = new ArrayList<String> ();
-	
+	ArrayList<TextBox> getters = new ArrayList<TextBox> ();
+		
 	for(Control c : ((FormPage)p).getControls()){
-		if(c instanceof TextBox){%>
+	
+	if(c instanceof TextBox){%>
 	private String <%=c.getName()%>;
 	public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
 		return this.<%=c.getName()%>;
@@ -23,9 +24,8 @@ public class <%=name%>ValidationForm extends ActionForm {
 		this.<%=c.getName()%> = val;
 	}
 	<%  resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
-	if( ((TextBox)c).isRequired() )
-	getters.add(c.getName().substring(0,1).toUpperCase()+c.getName().substring(1));
-	
+	getters.add((TextBox)c);
+	//
 	}}%>
 	
 	
@@ -40,13 +40,31 @@ public class <%=name%>ValidationForm extends ActionForm {
 			
 			ActionErrors errors = new ActionErrors(); 
 			
-			<% for(String getter : getters)
-			{%>
+			<% for(TextBox c : getters)
+			{
+				String getter = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
+				if(((TextBox)c).isRequired() && !(c instanceof EmailBox)){				
+			%>
 				if (get<%=getter%>() == null || get<%=getter%>().length() < 1)
 				{
 					errors.add("<%=getter%>", new ActionMessage("error.<%=p.getName()%>.<%=getter%>"));
 				}	
-			<%} %>
+			<%} else if(c instanceof EmailBox){
+				if(((EmailBox)c).isRequired()){%>
+					if (get<%=getter%>() == null || get<%=getter%>().length() < 1)
+					{
+						errors.add("<%=getter%>", new ActionMessage("error.<%=p.getName()%>.<%=getter%>"));
+					} else {
+						//RegExpre
+					}			
+			<%} else {%>
+				if(get<%=getter%>() != null)
+				{
+					//RegExpre
+				}
+			<%} 
+			}
+		}%>
 			
 			//TO BE COMPLETED ...
 			

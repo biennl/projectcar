@@ -18,7 +18,7 @@
     <controls xsi:type="webapp:Label" id="5" name="lbLastName" text="Last Name"/>
     <controls xsi:type="webapp:TextBox" id="6" name="tbLastName" text="" maxLength="30" size="30"/>
     <controls xsi:type="webapp:Label" id="7" name="lbEmail" text="Email address"/>
-    <controls xsi:type="webapp:TextBox" id="8" name="tbEmail" text="" maxLength="30" size="30" required="true"/>
+    <controls xsi:type="webapp:EmailBox" id="8" name="tbEmail" maxLength="30" size="30"/>
     <controls xsi:type="webapp:SubmitButton" id="9" name="btnSubmit" text="Submit"/>
     <controls xsi:type="webapp:ResetButton" id="10" name="btnReset" text="Reset"/>
   </pages>
