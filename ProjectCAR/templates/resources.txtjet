@@ -12,17 +12,22 @@ class="ResourcesFileFactory" imports ="java.util.Iterator org.eclipse.emf.common
 			for(Control c : ((FormPage)p).getControls()){
 				String controlText="";
 				String errorText="";
+				String validEmail="";
 				if(c instanceof FormButton)
 					controlText = ((FormButton)c).getText();
 				else if(c instanceof NormalControl)
 					controlText = ((NormalControl)c).getText();
 				else if ((c instanceof TextBox) && ((TextBox)c).isRequired() )
 					errorText = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
+				if(c instanceof EmailBox)
+					validEmail = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
 				if(!controlText.isEmpty()){%>
 <%=pageName+"."+c.getName()+".text="+controlText%>
 			<%}
 				if(!errorText.isEmpty()){%>
 <%="error."+pageName+"."+errorText+"="+errorText+" is required | "%>				
-				<%}}
-		%>
+				<%}
+				if(!validEmail.isEmpty()){%>
+<%="error."+pageName+"."+validEmail+".Validation"+"="+validEmail+" is not valid! | "%>					
+		<%}}%>
 	<%}}%>

@@ -2,6 +2,8 @@ package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
+import java.util.regex.Matcher;  
+import java.util.regex.Pattern; 
 
 public class DeleteContactValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
