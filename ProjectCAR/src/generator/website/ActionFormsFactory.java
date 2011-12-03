@@ -64,6 +64,7 @@ public class ActionFormsFactory
     stringBuffer.append(c.getName());
     stringBuffer.append(TEXT_8);
       resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
+	if( ((TextBox)c).isRequired() )
 	getters.add(c.getName().substring(0,1).toUpperCase()+c.getName().substring(1));
 	
 	}}

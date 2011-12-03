@@ -12,13 +12,13 @@
   </pages>
   <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.6" errorTarget="//@pages.1">
     <controls xsi:type="webapp:Label" id="1" name="lbID" text="Contact ID"/>
-    <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30" required="true"/>
     <controls xsi:type="webapp:Label" id="3" name="lbFirstName" text="First Name"/>
     <controls xsi:type="webapp:TextBox" id="4" name="tbFirstName" text="" maxLength="30" size="30"/>
     <controls xsi:type="webapp:Label" id="5" name="lbLastName" text="Last Name"/>
     <controls xsi:type="webapp:TextBox" id="6" name="tbLastName" text="" maxLength="30" size="30"/>
     <controls xsi:type="webapp:Label" id="7" name="lbEmail" text="Email address"/>
-    <controls xsi:type="webapp:TextBox" id="8" name="tbEmail" text="" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:TextBox" id="8" name="tbEmail" text="" maxLength="30" size="30" required="true"/>
     <controls xsi:type="webapp:SubmitButton" id="9" name="btnSubmit" text="Submit"/>
     <controls xsi:type="webapp:ResetButton" id="10" name="btnReset" text="Reset"/>
   </pages>
@@ -33,9 +33,9 @@
   </pages>
   <pages xsi:type="webapp:FormPage" name="login" title="Please login!" default="true" successTarget="//@pages.0" errorTarget="//@pages.1">
     <controls xsi:type="webapp:Label" id="1" name="lbUsername" text="User name"/>
-    <controls xsi:type="webapp:TextBox" id="2" name="tbUsername" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:TextBox" id="2" name="tbUsername" maxLength="30" size="30" required="true"/>
     <controls xsi:type="webapp:Label" id="3" name="lbPass" text="Password"/>
-    <controls xsi:type="webapp:PasswordBox" id="4" name="tbPass" maxLength="30" size="30"/>
+    <controls xsi:type="webapp:PasswordBox" id="4" name="tbPass" maxLength="30" size="30" required="true"/>
     <controls xsi:type="webapp:SubmitButton" id="5" name="btnSubmit" text="Submit"/>
     <controls xsi:type="webapp:ResetButton" id="6" name="btnReset" text="Reset"/>
   </pages>

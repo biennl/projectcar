@@ -9,9 +9,14 @@ public class LoginAction extends Action {
 			throws Exception {
 			
 			ActionForward forward = null;
+			String errors = "";
 			
 			//TO BE COMPLETED ...
 			
+			if(errors.isEmpty())
+				forward = mapping.findForward("main");
+			else
+				forward = mapping.findForward("error");
 			return forward;
 	}
 }

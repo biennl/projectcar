@@ -61,16 +61,6 @@ public class AddContactValidationForm extends ActionForm {
 					errors.add("TbID", new ActionMessage("error.addContact.TbID"));
 				}	
 			
-				if (getTbFirstName() == null || getTbFirstName().length() < 1)
-				{
-					errors.add("TbFirstName", new ActionMessage("error.addContact.TbFirstName"));
-				}	
-			
-				if (getTbLastName() == null || getTbLastName().length() < 1)
-				{
-					errors.add("TbLastName", new ActionMessage("error.addContact.TbLastName"));
-				}	
-			
 				if (getTbEmail() == null || getTbEmail().length() < 1)
 				{
 					errors.add("TbEmail", new ActionMessage("error.addContact.TbEmail"));

@@ -47,8 +47,8 @@ public class StrutsConfigFactory
 	}else 	
 	if( p instanceof FormPage ){
 			
-		NormalPage success =((FormPage)p).getSuccessTarget();
-		NormalPage error = ((FormPage)p).getErrorTarget();
+		Page success =((FormPage)p).getSuccessTarget();
+		Page error = ((FormPage)p).getErrorTarget();
 		String name=p.getName().substring(0,1).toUpperCase()+p.getName().substring(1);
 		
 		action += "\n<action path=\"/"+p.getName()+"\"" +" type=\"servlets."+name+"Action\" input=\"/pages/"+p.getName()+".jsp\" "; 
