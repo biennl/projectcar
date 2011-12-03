@@ -2,6 +2,8 @@ package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
+import java.util.regex.Matcher;  
+import java.util.regex.Pattern; 
 
 public class AddContactValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +40,14 @@ public class AddContactValidationForm extends ActionForm {
 		this.tbEmail = val;
 	}
 	
+		public boolean isValidEmailAddress(String emailAddress){  
+   			String  expression="^[\\w\\-]+(\\.[\\w\\-]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";  
+   			CharSequence inputStr = emailAddress;  
+   			Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
+   			Matcher matcher = pattern.matcher(inputStr);  
+   			return matcher.matches();
+   		}
+	
 	
 	
 	@Override
@@ -63,7 +73,8 @@ public class AddContactValidationForm extends ActionForm {
 			
 				if(getTbEmail() != null)
 				{
-					//RegExpre
+					if(!isValidEmailAddress(getTbEmail()))
+							errors.add("TbEmailValidation", new ActionMessage("error.addContact.TbEmail.Validation"));
 				}
 			
 			

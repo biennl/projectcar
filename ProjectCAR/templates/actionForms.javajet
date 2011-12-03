@@ -7,14 +7,16 @@ package actionForms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.*;
+import java.util.regex.Matcher;  
+import java.util.regex.Pattern; 
 
 public class <%=name%>ValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
 	<% String resetString = "" ; 
 	ArrayList<TextBox> getters = new ArrayList<TextBox> ();
-		
+	boolean hasEmailBox = false;	
 	for(Control c : ((FormPage)p).getControls()){
-	
+	if(c instanceof EmailBox) hasEmailBox = true;
 	if(c instanceof TextBox){%>
 	private String <%=c.getName()%>;
 	public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
@@ -25,8 +27,16 @@ public class <%=name%>ValidationForm extends ActionForm {
 	}
 	<%  resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
 	getters.add((TextBox)c);
-	//
-	}}%>
+	}}
+	if(hasEmailBox){%>
+		public boolean isValidEmailAddress(String emailAddress){  
+   			String  expression="^[\\w\\-]+(\\.[\\w\\-]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";  
+   			CharSequence inputStr = emailAddress;  
+   			Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
+   			Matcher matcher = pattern.matcher(inputStr);  
+   			return matcher.matches();
+   		}
+	<%}%>
 	
 	
 	@Override
@@ -55,12 +65,14 @@ public class <%=name%>ValidationForm extends ActionForm {
 					{
 						errors.add("<%=getter%>", new ActionMessage("error.<%=p.getName()%>.<%=getter%>"));
 					} else {
-						//RegExpre
+						if(!isValidEmailAddress(get<%=getter%>()))
+							errors.add("<%=getter%>Validation", new ActionMessage("error.<%=p.getName()%>.<%=getter%>.Validation"));
 					}			
 			<%} else {%>
 				if(get<%=getter%>() != null)
 				{
-					//RegExpre
+					if(!isValidEmailAddress(get<%=getter%>()))
+							errors.add("<%=getter%>Validation", new ActionMessage("error.<%=p.getName()%>.<%=getter%>.Validation"));
 				}
 			<%} 
 			}
@@ -71,5 +83,5 @@ public class <%=name%>ValidationForm extends ActionForm {
 			return errors;
 	}
 }
-$
+#
 <%}}%>

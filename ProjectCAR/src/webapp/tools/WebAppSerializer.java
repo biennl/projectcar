@@ -211,7 +211,7 @@ public class WebAppSerializer {
 		ArrayList<String> codeJavas = new ArrayList<String>();
 		int count = 0;
 		for (int i = 0; i < sources.length(); i++) {
-			if (sources.charAt(i) == '$') {
+			if (sources.charAt(i) == '#') {
 				String str = sources.substring(count, i - 1);
 				codeJavas.add(str);
 				count = i + 1;
