@@ -63,7 +63,7 @@ public class WebAppSerializer {
 	public void writeFile(Object model, Object generator, String filename) {
 		FileWriter output;
 		BufferedWriter writer;
-		System.out.println("Generating "+filename+" ... ");
+		System.out.println("Generating " + filename + " ... ");
 		try {
 			output = new FileWriter(filename);
 			writer = new BufferedWriter(output);
@@ -87,11 +87,12 @@ public class WebAppSerializer {
 			e.printStackTrace();
 		}
 	}
-public void generateFormPages(DynamicWebApp app) {
-		
+
+	public void generateFormPages(DynamicWebApp app) {
+
 		FormPageFactory npageFac = new FormPageFactory();
 		String sources = npageFac.generate(app);
-		
+
 		ArrayList<String> codePages = new ArrayList<String>();
 		int count = 0;
 		for (int i = 0; i < sources.length(); i++) {
@@ -102,21 +103,22 @@ public void generateFormPages(DynamicWebApp app) {
 			}
 		}
 		ArrayList<String> namePages = new ArrayList<String>();
-				
+
 		for (Page p : app.getPages()) {
 			if (p instanceof FormPage) {
 				namePages.add(p.getName());
 			}
 		}
-		
-				
+
 		FileWriter output;
 		BufferedWriter writer;
-		
+
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
-				System.out.println("Generating "+namePages.get(i) + ".jsp...");
-				output = new FileWriter("src/gen/pages/" + namePages.get(i) + ".jsp");
+				System.out
+						.println("Generating " + namePages.get(i) + ".jsp...");
+				output = new FileWriter("src/gen/pages/" + namePages.get(i)
+						+ ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
 				writer.close();
@@ -147,15 +149,17 @@ public void generateFormPages(DynamicWebApp app) {
 		}
 		FileWriter output;
 		BufferedWriter writer;
-		
+
 		for (int i = 0; i < namePages.size(); i++) {
 			try {
-				System.out.println("Generating "+namePages.get(i) + ".jsp ...");
-				output = new FileWriter("src/gen/pages/" + namePages.get(i) + ".jsp");
+				System.out.println("Generating " + namePages.get(i)
+						+ ".jsp ...");
+				output = new FileWriter("src/gen/pages/" + namePages.get(i)
+						+ ".jsp");
 				writer = new BufferedWriter(output);
 				writer.write(codePages.get(i));
 				writer.close();
-				output.close();				
+				output.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -184,12 +188,13 @@ public void generateFormPages(DynamicWebApp app) {
 		}
 		FileWriter output;
 		BufferedWriter writer;
-		
+
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
-				System.out.println("Generating "+nameJavaFiles.get(i)+" ...");
-				output = new FileWriter("src/gen/servlets/" + nameJavaFiles.get(i)
-						+ ".java");
+				System.out.println("Generating " + nameJavaFiles.get(i)
+						+ " ...");
+				output = new FileWriter("src/gen/servlets/"
+						+ nameJavaFiles.get(i) + ".java");
 				writer = new BufferedWriter(output);
 				writer.write(codeJavas.get(i));
 				writer.close();
@@ -222,12 +227,13 @@ public void generateFormPages(DynamicWebApp app) {
 		}
 		FileWriter output;
 		BufferedWriter writer;
-		
+
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
-				System.out.println("generating"+nameJavaFiles.get(i)+"... ");
-				output = new FileWriter("src/gen/actionForms/" + nameJavaFiles.get(i)
-						+ ".java");
+				System.out
+						.println("generating" + nameJavaFiles.get(i) + "... ");
+				output = new FileWriter("src/gen/actionForms/"
+						+ nameJavaFiles.get(i) + ".java");
 				writer = new BufferedWriter(output);
 				writer.write(codeJavas.get(i));
 				writer.close();
@@ -239,7 +245,7 @@ public void generateFormPages(DynamicWebApp app) {
 	}
 
 	public static void main(String[] args) {
-		
+
 		File f = new File("examples/aDynamicWebApp.xmi");
 		WebAppSerializer serializer = new WebAppSerializer();
 		DynamicWebApp app = serializer.load(f);
@@ -254,12 +260,12 @@ public void generateFormPages(DynamicWebApp app) {
 		serializer.generateNormalPage(app);
 		serializer.generateAction(app);
 		serializer.generateActionForm(app);
-		
-		//generating form pages
+
+		// generating form pages
 		FormPageFactory formFactory = new FormPageFactory();
 		serializer.generateFormPages(app);
-		
+
 		System.out.println("\nGeneration completed successfully !!!");
-		
+
 	}
 }
