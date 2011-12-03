@@ -253,8 +253,10 @@ public class WebAppSerializer {
 		serializer.writeFile(app, new WebConfigToXML(), "src/gen/web.xml");
 		serializer.writeFile(app, new ResourcesFileFactory(),
 				"src/gen/Resources.properties");
-		// serializer.writeFile(app, new NormalPageFactory(),
-		// "src/gen/main.jsp");
+		serializer.writeFile(app, new ResourcesFileFactory(),
+				"src/gen/Resources_en_EN.properties");
+		serializer.writeFile(app, new ResourcesFileFactory(),
+				"src/gen/Resources_fr_FR.properties");
 		serializer.writeFile(app, new StrutsConfigFactory(),
 				"src/gen/struts-config.xml");
 		serializer.generateNormalPage(app);
@@ -262,7 +264,6 @@ public class WebAppSerializer {
 		serializer.generateActionForm(app);
 
 		// generating form pages
-		FormPageFactory formFactory = new FormPageFactory();
 		serializer.generateFormPages(app);
 
 		System.out.println("\nGeneration completed successfully !!!");
