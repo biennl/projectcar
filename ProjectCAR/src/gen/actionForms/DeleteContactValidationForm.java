@@ -8,8 +8,6 @@ import java.util.regex.Pattern;
 public class DeleteContactValidationForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
 	
-	
-	
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		
