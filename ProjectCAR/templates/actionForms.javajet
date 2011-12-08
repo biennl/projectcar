@@ -17,9 +17,9 @@ public class <%=name%>ValidationForm extends ActionForm {
 	boolean hasEmailBox = false;	
 	boolean hasDateBox = false;
 	for(Control c : ((FormPage)p).getControls()){
-	if(c instanceof EmailBox) hasEmailBox = true;
+	if(!hasEmailBox && c instanceof EmailBox) hasEmailBox = true;
 	if( !hasDateBox && c instanceof DateBox) hasDateBox = true;
-	if(c instanceof TextBox){%>
+	if(c instanceof TextBox || c instanceof RadioButton || c instanceof DropDownList){%>
 	private String <%=c.getName()%>;
 	public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
 		return this.<%=c.getName()%>;
@@ -27,8 +27,11 @@ public class <%=name%>ValidationForm extends ActionForm {
 	public void set<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(String val){
 		this.<%=c.getName()%> = val;
 	}
-	<%  resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
-	getters.add((TextBox)c);
+		
+		<% if(c instanceof TextBox )
+		{ 	resetString +="set"+c.getName().substring(0,1).toUpperCase()+c.getName().substring(1)+"(null);\n\t\t";
+			getters.add((TextBox)c);
+		}
 	}}
 	if(hasEmailBox){%>
 		public boolean isValidEmailAddress(String emailAddress){  
@@ -38,9 +41,13 @@ public class <%=name%>ValidationForm extends ActionForm {
    			Matcher matcher = pattern.matcher(inputStr);  
    			return matcher.matches(); 
    		}
+	<%}
+	if(hasDateBox){	
+	%>
+		public boolean isValidDate(String date, String regExp){
+			return date.matches(regExp);
+		}
 	<%}%>
-	
-	
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		<%=resetString%>
@@ -55,7 +62,7 @@ public class <%=name%>ValidationForm extends ActionForm {
 			<% for(TextBox c : getters)
 			{
 				String getter = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
-				if(((TextBox)c).isRequired() && !(c instanceof EmailBox)){				
+				if(((TextBox)c).isRequired() && !(c instanceof EmailBox) && !(c instanceof DateBox)){				
 			%>
 				if (get<%=getter%>() == null || get<%=getter%>().length() < 1)
 				{
@@ -71,14 +78,39 @@ public class <%=name%>ValidationForm extends ActionForm {
 							errors.add("<%=getter%>Validation", new ActionMessage("error.<%=p.getName()%>.<%=getter%>.Validation"));
 					}			
 			<%} else {%>
-				if(get<%=getter%>() != null)
+				if(!get<%=getter%>().isEmpty())
 				{
 					if(!isValidEmailAddress(get<%=getter%>()))
 							errors.add("<%=getter%>Validation", new ActionMessage("error.<%=p.getName()%>.<%=getter%>.Validation"));
 				}
 			<%} 
 			}
-		}%>
+			else if (c instanceof DateBox)
+			{
+			DateFormat dateFormat = ((DateBox)c).getFormat();
+			String regExp = (dateFormat == DateFormat.DAY_MONTH_YEAR) ? "^([0-9]{2}-){2}[0-9]{4}$" : "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
+			
+			if(((DateBox)c).isRequired()){%>			
+				
+				if (get<%=getter%>() == null || get<%=getter%>().length() < 1)
+					{
+						errors.add("<%=getter%>", new ActionMessage("error.<%=p.getName()%>.<%=getter%>"));
+					} else {
+						if(!isValidDate(get<%=getter%>(),"<%=regExp%>"))
+							errors.add("<%=getter%>Validation", new ActionMessage("error.<%=p.getName()%>.<%=getter%>.Validation"));
+					}
+			
+			
+			<%}else{%>
+				if(!get<%=getter%>().isEmpty())
+				{
+					if(!isValidDate(get<%=getter%>(),"<%=regExp%>"))
+							errors.add("<%=getter%>Validation", new ActionMessage("error.<%=p.getName()%>.<%=getter%>.Validation"));
+				}
+			
+			<%}
+		
+		}}%>
 			
 			//TO BE COMPLETED ...
 			

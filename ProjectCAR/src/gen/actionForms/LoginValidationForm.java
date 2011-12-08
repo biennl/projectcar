@@ -15,7 +15,8 @@ public class LoginValidationForm extends ActionForm {
 	public void setTbUsername(String val){
 		this.tbUsername = val;
 	}
-	
+		
+		
 	private String tbPass;
 	public String getTbPass(){
 		return this.tbPass;
@@ -23,9 +24,8 @@ public class LoginValidationForm extends ActionForm {
 	public void setTbPass(String val){
 		this.tbPass = val;
 	}
-	
-	
-	
+		
+		
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		setTbUsername(null);

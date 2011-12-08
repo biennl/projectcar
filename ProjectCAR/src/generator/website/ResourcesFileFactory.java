@@ -30,7 +30,9 @@ public class ResourcesFileFactory
   protected final String TEXT_9 = "\t\t\t\t" + NL + "\t\t\t\t";
   protected final String TEXT_10 = NL;
   protected final String TEXT_11 = "\t\t\t\t\t" + NL + "\t\t";
-  protected final String TEXT_12 = NL + "\t";
+  protected final String TEXT_12 = NL;
+  protected final String TEXT_13 = "\t\t\t\t\t" + NL + "\t\t";
+  protected final String TEXT_14 = NL + "\t";
 
   public String generate(Object argument)
   {
@@ -53,6 +55,8 @@ public class ResourcesFileFactory
 				String controlText="";
 				String errorText="";
 				String validEmail="";
+				String validDate ="";
+				String format = "";
 				if(c instanceof FormButton)
 					controlText = ((FormButton)c).getText();
 				else if(c instanceof NormalControl)
@@ -61,6 +65,11 @@ public class ResourcesFileFactory
 					errorText = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
 				if(c instanceof EmailBox)
 					validEmail = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
+				if(c instanceof DateBox){
+					validDate = c.getName().substring(0,1).toUpperCase()+c.getName().substring(1);
+					DateFormat dateFormat = ((DateBox)c).getFormat();
+				    format = (dateFormat == DateFormat.DAY_MONTH_YEAR) ? "jj-mm-aaaa" : "aaaa-mm-jj";
+					}
 				if(!controlText.isEmpty()){
     stringBuffer.append(TEXT_6);
     stringBuffer.append(pageName+"."+c.getName()+".text="+controlText);
@@ -73,10 +82,16 @@ public class ResourcesFileFactory
     }
 				if(!validEmail.isEmpty()){
     stringBuffer.append(TEXT_10);
-    stringBuffer.append("error."+pageName+"."+validEmail+".Validation"+"="+validEmail+" is not valid! | ");
+    stringBuffer.append("error."+pageName+"."+validEmail+".Validation"+"="+validEmail+" is not valid! (example@upmc.fr)| ");
     stringBuffer.append(TEXT_11);
-    }}
+    }
+		 if(!validDate.isEmpty()){
     stringBuffer.append(TEXT_12);
+    stringBuffer.append("error."+pageName+"."+validDate+".Validation"+"="+validDate+" is not valid! (" +format+")| ");
+    stringBuffer.append(TEXT_13);
+    } 	
+		}
+    stringBuffer.append(TEXT_14);
     }}
     return stringBuffer.toString();
   }
