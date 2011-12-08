@@ -62,6 +62,33 @@ public class AddContactValidationForm extends ActionForm {
 	}
 		
 		
+	private String female;
+	public String getFemale(){
+		return this.female;
+	}	
+	public void setFemale(String val){
+		this.female = val;
+	}
+		
+		
+	private String married;
+	public String getMarried(){
+		return this.married;
+	}	
+	public void setMarried(String val){
+		this.married = val;
+	}
+		
+		
+	private String niveauEtude;
+	public String getNiveauEtude(){
+		return this.niveauEtude;
+	}	
+	public void setNiveauEtude(String val){
+		this.niveauEtude = val;
+	}
+		
+		
 		public boolean isValidEmailAddress(String emailAddress){  
    			String  expression="^[\\w\\-]+(\\.[\\w\\-]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";  
    			CharSequence inputStr = emailAddress;  

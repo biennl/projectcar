@@ -88,7 +88,7 @@ public class ActionFormsFactory
 	for(Control c : ((FormPage)p).getControls()){
 	if(!hasEmailBox && c instanceof EmailBox) hasEmailBox = true;
 	if( !hasDateBox && c instanceof DateBox) hasDateBox = true;
-	if(c instanceof TextBox || c instanceof RadioButton || c instanceof DropDownList){
+	if(c instanceof TextBox || c instanceof RadioButton || c instanceof DropDownList || c instanceof CheckBox){
     stringBuffer.append(TEXT_3);
     stringBuffer.append(c.getName());
     stringBuffer.append(TEXT_4);

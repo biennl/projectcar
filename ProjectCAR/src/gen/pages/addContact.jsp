@@ -30,8 +30,11 @@
 <td><html:text property="tbEmail" size="30" maxlength="30" styleId="4"/></td></tr>
 <tr><td><label for="5">Date naissance</label></td>
 <td><html:text property="tbDateNaissance" size="8" maxlength="12" styleId="5"/></td></tr>
-<tr><td><label for="6">Sexe</label></td>
-<html:radio  property="sexe" value="s">sexe</html:radio></td></tr>
+<tr><td><label for="6">Sex</label></td>
+<td><html:radio  property="sexe" value="s">Male</html:radio></td></tr>
+<td><html:radio  property="female" value="f">Female</html:radio></td></tr>
+<tr><td><label for="7">Maried</label></td>
+<td><html:checkbox  property="married"/></td></tr>
 <tr><td><html:submit  property="btnSubmit">Submit</html:submit></td></tr>
 <tr><td><html:reset  property="btnReset">Reset</html:reset></td></tr> 
 </table>
