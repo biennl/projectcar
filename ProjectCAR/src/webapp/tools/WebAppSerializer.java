@@ -231,7 +231,7 @@ public class WebAppSerializer {
 		for (int i = 0; i < nameJavaFiles.size(); i++) {
 			try {
 				System.out
-						.println("generating" + nameJavaFiles.get(i) + "... ");
+						.println("generating " + nameJavaFiles.get(i) + "... ");
 				output = new FileWriter("src/gen/actionForms/"
 						+ nameJavaFiles.get(i) + ".java");
 				writer = new BufferedWriter(output);

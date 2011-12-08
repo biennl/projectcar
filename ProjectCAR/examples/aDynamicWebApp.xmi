@@ -21,8 +21,16 @@
     <controls xsi:type="webapp:EmailBox" id="8" name="tbEmail" maxLength="30" size="30"/>
     <controls xsi:type="webapp:Label" id="1" name="lbdatenaissance" text="Date naissance"/>
     <controls xsi:type="webapp:DateBox" id="1" name="tbDateNaissance" maxLength="12" size="8"/>
-    <controls xsi:type="webapp:Label" id="a" name="sexe" text="Sexe"/>
-    <controls xsi:type="webapp:RadioButton" id="a" name="sexe" value="s" text="sexe"/>
+    <controls xsi:type="webapp:Label" id="a" name="sexe" text="Sex"/>
+    <controls xsi:type="webapp:RadioButton" id="a" name="sexe" value="s" text="Male"/>
+    <controls xsi:type="webapp:RadioButton" id="d" name="female" value="f" text="Female"/>
+    <controls xsi:type="webapp:Label" id="f" name="marrie" text="Maried"/>
+    <controls xsi:type="webapp:CheckBox" id="g" name="married" text="Married"/>
+    <controls xsi:type="webapp:Label" id="h" name="niveau" text="niveau"/>
+    <controls xsi:type="webapp:DropDownList" id="f" name="niveauEtude">
+      <elements value="licence"/>
+      <elements value="master"/>
+    </controls>
     <controls xsi:type="webapp:SubmitButton" id="9" name="btnSubmit" text="Submit"/>
     <controls xsi:type="webapp:ResetButton" id="10" name="btnReset" text="Reset"/>
   </pages>
