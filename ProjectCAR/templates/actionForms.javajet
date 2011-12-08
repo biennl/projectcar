@@ -36,7 +36,7 @@ public class <%=name%>ValidationForm extends ActionForm {
    			CharSequence inputStr = emailAddress;  
    			Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
    			Matcher matcher = pattern.matcher(inputStr);  
-   			return matcher.matches();
+   			return matcher.matches(); 
    		}
 	<%}%>
 	
