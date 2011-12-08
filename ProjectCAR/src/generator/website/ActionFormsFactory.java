@@ -65,8 +65,10 @@ public class ActionFormsFactory
      String resetString = "" ; 
 	ArrayList<TextBox> getters = new ArrayList<TextBox> ();
 	boolean hasEmailBox = false;	
+	boolean hasDateBox = false;
 	for(Control c : ((FormPage)p).getControls()){
 	if(c instanceof EmailBox) hasEmailBox = true;
+	if( !hasDateBox && c instanceof DateBox) hasDateBox = true;
 	if(c instanceof TextBox){
     stringBuffer.append(TEXT_3);
     stringBuffer.append(c.getName());

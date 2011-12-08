@@ -15,8 +15,10 @@ public class <%=name%>ValidationForm extends ActionForm {
 	<% String resetString = "" ; 
 	ArrayList<TextBox> getters = new ArrayList<TextBox> ();
 	boolean hasEmailBox = false;	
+	boolean hasDateBox = false;
 	for(Control c : ((FormPage)p).getControls()){
 	if(c instanceof EmailBox) hasEmailBox = true;
+	if( !hasDateBox && c instanceof DateBox) hasDateBox = true;
 	if(c instanceof TextBox){%>
 	private String <%=c.getName()%>;
 	public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
