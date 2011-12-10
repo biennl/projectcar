@@ -22,6 +22,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebApp.ecore#//FormPage/successTarget"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebApp.ecore#//FormPage/errorTarget"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//FormPage/controls"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//FormPage/persist"/>
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//NormalPage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//NormalPage/controls"/>
@@ -34,7 +35,6 @@
     <genClasses ecoreClass="WebApp.ecore#//Link">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebApp.ecore#//Link/destination"/>
     </genClasses>
-    <genClasses ecoreClass="WebApp.ecore#//SubmitButton"/>
     <genClasses ecoreClass="WebApp.ecore#//TextBox">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//TextBox/maxLength"/>
@@ -48,8 +48,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//ListElement/value"/>
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//RadioButton">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//RadioButton/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//RadioButton/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebApp.ecore#//RadioButton/elements"/>
     </genClasses>
     <genClasses ecoreClass="WebApp.ecore#//CheckBox">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//CheckBox/text"/>
@@ -71,5 +70,6 @@
     <genClasses ecoreClass="WebApp.ecore#//DateBox">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebApp.ecore#//DateBox/format"/>
     </genClasses>
+    <genClasses ecoreClass="WebApp.ecore#//SubmitButton"/>
   </genPackages>
 </genmodel:GenModel>

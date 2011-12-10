@@ -96,10 +96,6 @@ public class WebappAdapterFactory extends AdapterFactoryImpl {
 				return createLinkAdapter();
 			}
 			@Override
-			public Adapter caseSubmitButton(SubmitButton object) {
-				return createSubmitButtonAdapter();
-			}
-			@Override
 			public Adapter caseTextBox(TextBox object) {
 				return createTextBoxAdapter();
 			}
@@ -150,6 +146,10 @@ public class WebappAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDateBox(DateBox object) {
 				return createDateBoxAdapter();
+			}
+			@Override
+			public Adapter caseSubmitButton(SubmitButton object) {
+				return createSubmitButtonAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

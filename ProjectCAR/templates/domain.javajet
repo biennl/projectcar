@@ -1,0 +1,28 @@
+<%@ jet package="generator.website" class="DomainFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.*;"%>
+<% DynamicWebApp webApp = (DynamicWebApp) argument;
+for(Page p : webApp.getPages()){
+		if(p instanceof FormPage && ((FormPage)p).isPersist()){
+		%>
+		<% int n = p.getName().length();
+		String fName = p.getName().substring(3);%>
+		public class <%=fName.substring(0,1).toUpperCase()+fName.substring(1)%> {
+		<%for(Control c : ((FormPage)p).getControls()){
+		
+		if(c instanceof TextBox || c instanceof RadioButton 
+		|| c instanceof DropDownList || c instanceof CheckBox)
+		{%>
+		
+		private String <%=c.getName()%>;
+		public String get<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(){
+			return this.<%=c.getName()%>;
+		}	
+		public void set<%=c.getName().substring(0,1).toUpperCase()%><%=c.getName().substring(1)%>(String val){
+			this.<%=c.getName()%> = val;
+		}
+		
+		<%}}%>
+		}
+		#
+		<%}}
+ 
+%>

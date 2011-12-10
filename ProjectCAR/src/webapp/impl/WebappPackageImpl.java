@@ -301,6 +301,15 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFormPage_Persist() {
+		return (EAttribute)formPageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -458,17 +467,8 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRadioButton_Value() {
-		return (EAttribute)radioButtonEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRadioButton_Text() {
-		return (EAttribute)radioButtonEClass.getEStructuralFeatures().get(1);
+	public EReference getRadioButton_Elements() {
+		return (EReference)radioButtonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -639,6 +639,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		createEReference(formPageEClass, FORM_PAGE__SUCCESS_TARGET);
 		createEReference(formPageEClass, FORM_PAGE__ERROR_TARGET);
 		createEReference(formPageEClass, FORM_PAGE__CONTROLS);
+		createEAttribute(formPageEClass, FORM_PAGE__PERSIST);
 
 		normalPageEClass = createEClass(NORMAL_PAGE);
 		createEReference(normalPageEClass, NORMAL_PAGE__CONTROLS);
@@ -651,8 +652,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		linkEClass = createEClass(LINK);
 		createEReference(linkEClass, LINK__DESTINATION);
-
-		submitButtonEClass = createEClass(SUBMIT_BUTTON);
 
 		textBoxEClass = createEClass(TEXT_BOX);
 		createEAttribute(textBoxEClass, TEXT_BOX__TEXT);
@@ -667,8 +666,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		createEAttribute(listElementEClass, LIST_ELEMENT__VALUE);
 
 		radioButtonEClass = createEClass(RADIO_BUTTON);
-		createEAttribute(radioButtonEClass, RADIO_BUTTON__VALUE);
-		createEAttribute(radioButtonEClass, RADIO_BUTTON__TEXT);
+		createEReference(radioButtonEClass, RADIO_BUTTON__ELEMENTS);
 
 		checkBoxEClass = createEClass(CHECK_BOX);
 		createEAttribute(checkBoxEClass, CHECK_BOX__TEXT);
@@ -693,6 +691,8 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		dateBoxEClass = createEClass(DATE_BOX);
 		createEAttribute(dateBoxEClass, DATE_BOX__FORMAT);
+
+		submitButtonEClass = createEClass(SUBMIT_BUTTON);
 
 		// Create enums
 		dateFormatEEnum = createEEnum(DATE_FORMAT);
@@ -731,8 +731,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		labelEClass.getESuperTypes().add(this.getNormalControl());
 		linkEClass.getESuperTypes().add(this.getControl());
 		linkEClass.getESuperTypes().add(this.getNormalControl());
-		submitButtonEClass.getESuperTypes().add(this.getControl());
-		submitButtonEClass.getESuperTypes().add(this.getFormButton());
 		textBoxEClass.getESuperTypes().add(this.getControl());
 		dropDownListEClass.getESuperTypes().add(this.getControl());
 		radioButtonEClass.getESuperTypes().add(this.getControl());
@@ -744,6 +742,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		passwordBoxEClass.getESuperTypes().add(this.getTextBox());
 		emailBoxEClass.getESuperTypes().add(this.getTextBox());
 		dateBoxEClass.getESuperTypes().add(this.getTextBox());
+		submitButtonEClass.getESuperTypes().add(this.getFormButton());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(pageEClass, Page.class, "Page", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -755,6 +754,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEReference(getFormPage_SuccessTarget(), this.getPage(), null, "successTarget", null, 0, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormPage_ErrorTarget(), this.getPage(), null, "errorTarget", null, 0, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormPage_Controls(), this.getControl(), null, "controls", null, 1, -1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormPage_Persist(), ecorePackage.getEBoolean(), "persist", null, 1, 1, FormPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(normalPageEClass, NormalPage.class, "NormalPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNormalPage_Controls(), this.getNormalControl(), null, "controls", null, 0, -1, NormalPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -767,8 +767,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_Destination(), this.getPage(), null, "destination", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(submitButtonEClass, SubmitButton.class, "SubmitButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(textBoxEClass, TextBox.class, "TextBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextBox_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -783,8 +781,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEAttribute(getListElement_Value(), ecorePackage.getEString(), "value", null, 1, 1, ListElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(radioButtonEClass, RadioButton.class, "RadioButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRadioButton_Value(), ecorePackage.getEString(), "value", null, 1, 1, RadioButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRadioButton_Text(), ecorePackage.getEString(), "text", null, 0, 1, RadioButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRadioButton_Elements(), this.getListElement(), null, "elements", null, 2, -1, RadioButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCheckBox_Text(), ecorePackage.getEString(), "text", null, 1, 1, CheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -809,6 +806,8 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		initEClass(dateBoxEClass, DateBox.class, "DateBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateBox_Format(), this.getDateFormat(), "format", null, 0, 1, DateBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(submitButtonEClass, SubmitButton.class, "SubmitButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(dateFormatEEnum, DateFormat.class, "DateFormat");

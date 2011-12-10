@@ -129,14 +129,6 @@ public class WebappSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WebappPackage.SUBMIT_BUTTON: {
-				SubmitButton submitButton = (SubmitButton)theEObject;
-				T result = caseSubmitButton(submitButton);
-				if (result == null) result = caseFormButton(submitButton);
-				if (result == null) result = caseControl(submitButton);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case WebappPackage.TEXT_BOX: {
 				TextBox textBox = (TextBox)theEObject;
 				T result = caseTextBox(textBox);
@@ -228,6 +220,14 @@ public class WebappSwitch<T> {
 				T result = caseDateBox(dateBox);
 				if (result == null) result = caseTextBox(dateBox);
 				if (result == null) result = caseControl(dateBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.SUBMIT_BUTTON: {
+				SubmitButton submitButton = (SubmitButton)theEObject;
+				T result = caseSubmitButton(submitButton);
+				if (result == null) result = caseFormButton(submitButton);
+				if (result == null) result = caseControl(submitButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

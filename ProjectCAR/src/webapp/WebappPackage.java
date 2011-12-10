@@ -171,13 +171,22 @@ public interface WebappPackage extends EPackage {
 	int FORM_PAGE__CONTROLS = PAGE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Persist</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_PAGE__PERSIST = PAGE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Form Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_PAGE_FEATURE_COUNT = PAGE_FEATURE_COUNT + 3;
+	int FORM_PAGE_FEATURE_COUNT = PAGE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link webapp.impl.NormalPageImpl <em>Normal Page</em>}' class.
@@ -380,43 +389,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getSubmitButton()
 	 * @generated
 	 */
-	int SUBMIT_BUTTON = 6;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBMIT_BUTTON__ID = CONTROL__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBMIT_BUTTON__NAME = CONTROL__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBMIT_BUTTON__TEXT = CONTROL_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Submit Button</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBMIT_BUTTON_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
+	int SUBMIT_BUTTON = 19;
 
 	/**
 	 * The meta object id for the '{@link webapp.impl.TextBoxImpl <em>Text Box</em>}' class.
@@ -426,7 +399,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getTextBox()
 	 * @generated
 	 */
-	int TEXT_BOX = 7;
+	int TEXT_BOX = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -499,7 +472,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getDropDownList()
 	 * @generated
 	 */
-	int DROP_DOWN_LIST = 8;
+	int DROP_DOWN_LIST = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -545,7 +518,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getListElement()
 	 * @generated
 	 */
-	int LIST_ELEMENT = 9;
+	int LIST_ELEMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -573,7 +546,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getRadioButton()
 	 * @generated
 	 */
-	int RADIO_BUTTON = 10;
+	int RADIO_BUTTON = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -594,22 +567,13 @@ public interface WebappPackage extends EPackage {
 	int RADIO_BUTTON__NAME = CONTROL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_BUTTON__VALUE = CONTROL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RADIO_BUTTON__TEXT = CONTROL_FEATURE_COUNT + 1;
+	int RADIO_BUTTON__ELEMENTS = CONTROL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Radio Button</em>' class.
@@ -618,7 +582,7 @@ public interface WebappPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_BUTTON_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 2;
+	int RADIO_BUTTON_FEATURE_COUNT = CONTROL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link webapp.impl.CheckBoxImpl <em>Check Box</em>}' class.
@@ -628,7 +592,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getCheckBox()
 	 * @generated
 	 */
-	int CHECK_BOX = 11;
+	int CHECK_BOX = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -674,7 +638,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getNormalControl()
 	 * @generated
 	 */
-	int NORMAL_CONTROL = 12;
+	int NORMAL_CONTROL = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -721,7 +685,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getDynamicWebApp()
 	 * @generated
 	 */
-	int DYNAMIC_WEB_APP = 13;
+	int DYNAMIC_WEB_APP = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -759,7 +723,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getFormButton()
 	 * @generated
 	 */
-	int FORM_BUTTON = 14;
+	int FORM_BUTTON = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -805,7 +769,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getResetButton()
 	 * @generated
 	 */
-	int RESET_BUTTON = 15;
+	int RESET_BUTTON = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -851,7 +815,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getNormalButton()
 	 * @generated
 	 */
-	int NORMAL_BUTTON = 16;
+	int NORMAL_BUTTON = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -898,7 +862,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getPasswordBox()
 	 * @generated
 	 */
-	int PASSWORD_BOX = 17;
+	int PASSWORD_BOX = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -971,7 +935,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getEmailBox()
 	 * @generated
 	 */
-	int EMAIL_BOX = 18;
+	int EMAIL_BOX = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1044,7 +1008,7 @@ public interface WebappPackage extends EPackage {
 	 * @see webapp.impl.WebappPackageImpl#getDateBox()
 	 * @generated
 	 */
-	int DATE_BOX = 19;
+	int DATE_BOX = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1117,6 +1081,42 @@ public interface WebappPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_BOX_FEATURE_COUNT = TEXT_BOX_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_BUTTON__ID = FORM_BUTTON__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_BUTTON__NAME = FORM_BUTTON__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_BUTTON__TEXT = FORM_BUTTON__TEXT;
+
+	/**
+	 * The number of structural features of the '<em>Submit Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_BUTTON_FEATURE_COUNT = FORM_BUTTON_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link webapp.DateFormat <em>Date Format</em>}' enum.
@@ -1214,6 +1214,17 @@ public interface WebappPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFormPage_Controls();
+
+	/**
+	 * Returns the meta object for the attribute '{@link webapp.FormPage#isPersist <em>Persist</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Persist</em>'.
+	 * @see webapp.FormPage#isPersist()
+	 * @see #getFormPage()
+	 * @generated
+	 */
+	EAttribute getFormPage_Persist();
 
 	/**
 	 * Returns the meta object for class '{@link webapp.NormalPage <em>Normal Page</em>}'.
@@ -1416,26 +1427,15 @@ public interface WebappPackage extends EPackage {
 	EClass getRadioButton();
 
 	/**
-	 * Returns the meta object for the attribute '{@link webapp.RadioButton#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference list '{@link webapp.RadioButton#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see webapp.RadioButton#getValue()
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see webapp.RadioButton#getElements()
 	 * @see #getRadioButton()
 	 * @generated
 	 */
-	EAttribute getRadioButton_Value();
-
-	/**
-	 * Returns the meta object for the attribute '{@link webapp.RadioButton#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see webapp.RadioButton#getText()
-	 * @see #getRadioButton()
-	 * @generated
-	 */
-	EAttribute getRadioButton_Text();
+	EReference getRadioButton_Elements();
 
 	/**
 	 * Returns the meta object for class '{@link webapp.CheckBox <em>Check Box</em>}'.
@@ -1694,6 +1694,14 @@ public interface WebappPackage extends EPackage {
 		EReference FORM_PAGE__CONTROLS = eINSTANCE.getFormPage_Controls();
 
 		/**
+		 * The meta object literal for the '<em><b>Persist</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM_PAGE__PERSIST = eINSTANCE.getFormPage_Persist();
+
+		/**
 		 * The meta object literal for the '{@link webapp.impl.NormalPageImpl <em>Normal Page</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1864,20 +1872,12 @@ public interface WebappPackage extends EPackage {
 		EClass RADIO_BUTTON = eINSTANCE.getRadioButton();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RADIO_BUTTON__VALUE = eINSTANCE.getRadioButton_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RADIO_BUTTON__TEXT = eINSTANCE.getRadioButton_Text();
+		EReference RADIO_BUTTON__ELEMENTS = eINSTANCE.getRadioButton_Elements();
 
 		/**
 		 * The meta object literal for the '{@link webapp.impl.CheckBoxImpl <em>Check Box</em>}' class.

@@ -65,7 +65,6 @@ public class WebappFactoryImpl extends EFactoryImpl implements WebappFactory {
 			case WebappPackage.NORMAL_PAGE: return (EObject)createNormalPage();
 			case WebappPackage.LABEL: return (EObject)createLabel();
 			case WebappPackage.LINK: return (EObject)createLink();
-			case WebappPackage.SUBMIT_BUTTON: return (EObject)createSubmitButton();
 			case WebappPackage.TEXT_BOX: return (EObject)createTextBox();
 			case WebappPackage.DROP_DOWN_LIST: return (EObject)createDropDownList();
 			case WebappPackage.LIST_ELEMENT: return (EObject)createListElement();
@@ -77,6 +76,7 @@ public class WebappFactoryImpl extends EFactoryImpl implements WebappFactory {
 			case WebappPackage.PASSWORD_BOX: return (EObject)createPasswordBox();
 			case WebappPackage.EMAIL_BOX: return (EObject)createEmailBox();
 			case WebappPackage.DATE_BOX: return (EObject)createDateBox();
+			case WebappPackage.SUBMIT_BUTTON: return (EObject)createSubmitButton();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
