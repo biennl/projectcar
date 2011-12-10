@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="project" default="war">
+    <description>
+            description
+    </description>
+	<path id="compile.classpath">
+		<fileset dir="libs">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="C:\\Program Files\\Apache Software Foundation\\Tomcat 7.0\\lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+    
+	<target name="init">
+	    <mkdir dir="build/classes"/>
+	    <mkdir dir="dist"/>
+		<mkdir dir="build/src/actionForms"/>
+		<mkdir dir="build/src/servlets"/>
+		<mkdir dir="build/WEB-INF/classes"/>
+		<mkdir dir="build/src/pages"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac destdir="build/classes" debug="true" srcdir="src/gen">
+			<classpath refid="compile.classpath"></classpath>
+		</javac>
+	</target>
+	<target name="prepare" depends="compile">
+		<copy file="src/gen/Resources.properties" todir="build/WEB-INF/classes"></copy>
+		<copy file="src/gen/Resources_en_EN.properties" todir="build/WEB-INF/classes"></copy>
+		<copy file="src/gen/Resources_fr_FR.properties" todir="build/WEB-INF/classes"></copy>
+		<copydir dest="build/WEB-INF/classes" src="build/classes"></copydir>
+		<copydir dest="build/src/actionForms" src="src/gen/actionForms"></copydir>
+		<copydir dest="build/src/servlets" src="src/gen/servlets"></copydir>
+		<copydir dest="build/src/pages" src="src/gen/pages"></copydir>
+		<copy file="src/gen/struts-config.xml" todir="build/WEB-INF"></copy>
+	</target>
+	<target name="war" depends="prepare">
+		<war destfile="dist/TestGeneration.war" webxml="src/gen/web.xml">
+			<classes dir="build/WEB-INF/classes"/>
+			<fileset dir="build/src"/>
+			<lib dir="libs"></lib>
+			<webinf dir="build/WEB-INF"></webinf>
+		</war>
+		<copy file="dist/TestGeneration.war" todir="C:\\Program Files\\Apache Software Foundation\\Tomcat 7.0\\webapps" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="build"></delete>
+		<delete dir="dist"></delete>
+	</target>
+    
+</project>

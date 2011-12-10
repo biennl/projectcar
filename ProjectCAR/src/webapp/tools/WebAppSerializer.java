@@ -2,6 +2,8 @@ package webapp.tools;
 
 import generator.website.ActionFormsFactory;
 import generator.website.ActionsFactory;
+import generator.website.DAOFactory;
+import generator.website.DomainFactory;
 import generator.website.FormPageFactory;
 import generator.website.NormalPageFactory;
 import generator.website.ResourcesFileFactory;
@@ -129,6 +131,92 @@ public class WebAppSerializer {
 		}
 	}
 
+	
+	public void generateDomainClasses(DynamicWebApp app) {
+
+		DomainFactory npageFac = new DomainFactory();
+		String sources = npageFac.generate(app);
+
+		ArrayList<String> codePages = new ArrayList<String>();
+		int count = 0;
+		for (int i = 0; i < sources.length(); i++) {
+			if (sources.charAt(i) == '#') {
+				String str = sources.substring(count, i - 1);
+				codePages.add(str);
+				count = i + 1;
+			}
+		}
+		ArrayList<String> namePages = new ArrayList<String>();
+
+		for (Page p : app.getPages()) {
+			if (p instanceof FormPage && ((FormPage)p).isPersist()) {
+				namePages.add(p.getName().substring(0,1).toUpperCase()+p.getName().substring(1));
+			}
+		}
+
+		FileWriter output;
+		BufferedWriter writer;
+
+		for (int i = 0; i < namePages.size(); i++) {
+			try {
+				System.out
+						.println("Generating " + namePages.get(i) + ".java...");
+				output = new FileWriter("src/gen/domain/" + namePages.get(i)
+						+ ".java");
+				writer = new BufferedWriter(output);
+				writer.write(codePages.get(i));
+				writer.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// dao
+	
+	public void generateDAOClasses(DynamicWebApp app) {
+
+		DAOFactory npageFac = new DAOFactory();
+		String sources = npageFac.generate(app);
+
+		ArrayList<String> codePages = new ArrayList<String>();
+		int count = 0;
+		for (int i = 0; i < sources.length(); i++) {
+			if (sources.charAt(i) == '#') {
+				String str = sources.substring(count, i - 1);
+				codePages.add(str);
+				count = i + 1;
+			}
+		}
+		ArrayList<String> namePages = new ArrayList<String>();
+
+		for (Page p : app.getPages()) {
+			if (p instanceof FormPage && ((FormPage)p).isPersist()) {
+				namePages.add(p.getName().substring(0,1).toUpperCase()+p.getName().substring(1));
+			}
+		}
+
+		FileWriter output;
+		BufferedWriter writer;
+
+		for (int i = 0; i < namePages.size(); i++) {
+			try {
+				String fName = namePages.get(i).substring(3);
+				System.out
+						.println("Generating DAO" + fName.substring(0,1).toUpperCase()+fName.substring(1) + ".java...");
+				output = new FileWriter("src/gen/dao/DAO" + fName.substring(0,1).toUpperCase()+fName.substring(1)
+						+ ".java");
+				writer = new BufferedWriter(output);
+				writer.write(codePages.get(i));
+				writer.close();
+				output.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void generateNormalPage(DynamicWebApp app) {
 		NormalPageFactory npageFac = new NormalPageFactory();
 		String sources = npageFac.generate(app);
@@ -258,13 +346,15 @@ public class WebAppSerializer {
 		serializer.writeFile(app, new ResourcesFileFactory(),
 				"src/gen/Resources_fr_FR.properties");
 		serializer.writeFile(app, new StrutsConfigFactory(),
-				"src/gen/struts-config.xml");
+				"src/gen/struts-config.xml"); 
 		serializer.generateNormalPage(app);
 		serializer.generateAction(app);
 		serializer.generateActionForm(app);
-
+		serializer.generateDAOClasses(app);
+		
 		// generating form pages
 		serializer.generateFormPages(app);
+		serializer.generateDomainClasses(app);
 
 		System.out.println("\nGeneration completed successfully !!!");
 

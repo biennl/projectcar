@@ -26,6 +26,7 @@ import webapp.WebappPackage;
  *   <li>{@link webapp.impl.FormPageImpl#getSuccessTarget <em>Success Target</em>}</li>
  *   <li>{@link webapp.impl.FormPageImpl#getErrorTarget <em>Error Target</em>}</li>
  *   <li>{@link webapp.impl.FormPageImpl#getControls <em>Controls</em>}</li>
+ *   <li>{@link webapp.impl.FormPageImpl#isPersist <em>Persist</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +96,24 @@ public class FormPageImpl extends PageImpl implements FormPage {
 	@SuppressWarnings("unchecked")
 	public EList<Control> getControls() {
 		return (EList<Control>)eGet(WebappPackage.Literals.FORM_PAGE__CONTROLS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPersist() {
+		return (Boolean)eGet(WebappPackage.Literals.FORM_PAGE__PERSIST, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPersist(boolean newPersist) {
+		eSet(WebappPackage.Literals.FORM_PAGE__PERSIST, newPersist);
 	}
 
 } //FormPageImpl

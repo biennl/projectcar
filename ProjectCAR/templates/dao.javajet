@@ -1,0 +1,38 @@
+<%@ jet package="generator.website" class="DAOFactory" imports ="java.util.Iterator org.eclipse.emf.common.util.EList webapp.*;"%>
+<% DynamicWebApp webApp = (DynamicWebApp) argument;
+for(Page p : webApp.getPages()){
+		if(p instanceof FormPage && ((FormPage)p).isPersist()){
+		
+		String fName = p.getName().substring(3);
+		String params ="";
+		%>
+public class DAO<%=fName.substring(0,1).toUpperCase()+fName.substring(1)%> {
+		<%for(Control c : ((FormPage)p).getControls()){
+		
+		if(c instanceof TextBox || c instanceof RadioButton 
+		|| c instanceof DropDownList || c instanceof CheckBox)
+		{
+			params+=" final String "+c.getName()+", ";		
+		}}%>
+	public void add<%=fName.substring(0,1).toUpperCase()+fName.substring(1)%>(<%=params.substring(0,params.length()-2)%>){
+		// TO DO...
+	}
+			
+	public void delete<%=fName.substring(0,1).toUpperCase()+fName.substring(1)%>(String id){
+		// TO DO...
+	}
+			
+	public void update<%=fName.substring(0,1).toUpperCase()+fName.substring(1)%>(String id){
+		// TO DO...
+	}
+			
+	public void find<%=fName.substring(0,1).toUpperCase()+fName.substring(1)%>(String id){
+		// TO DO...
+	}
+}
+		#
+		<%
+		
+		}}
+ 
+%>

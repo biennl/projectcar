@@ -17,5 +17,5 @@ package webapp;
  * @model
  * @generated
  */
-public interface SubmitButton extends Control, FormButton {
+public interface SubmitButton extends FormButton {
 } // SubmitButton

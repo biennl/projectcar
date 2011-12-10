@@ -71,13 +71,17 @@ public class FormPageFactory
  		balise +="<tr><td><html:link "+" property=\""+ control.getName()+ "\">"+((Link)control).getText()+"</html:link>";
  		balise +="</td></tr>";
  	}else if(control instanceof RadioButton) {
- 		balise +="<td><html:radio "+" property=\""+ control.getName()+ "\" value=\""+((RadioButton)control).getValue()+ "\">"+((RadioButton)control).getText();
- 		balise +="</html:radio>";
+ 		RadioButton radio = (RadioButton)control;
+ 		balise +="<td>";
+ 		for(int j=0;j<radio.getElements().size();j++){
+ 			balise +="\n<html:radio "+" property=\""+ control.getName()+ "\" value=\""+radio.getElements().get(j).getValue()+ "\">"+radio.getElements().get(j).getValue();
+ 			balise +="</html:radio>";
+ 		}
  		balise +="</td></tr>";
  	}else if(control instanceof DropDownList) {
  		balise +="<td><html:select "+" property=\""+ control.getName()+ "\">";
  		DropDownList list = (DropDownList)control;
- 		for(int j = 0; j< list.getElements().size(); i++)
+ 		for(int j = 0; j< list.getElements().size(); j++)
  		{
  			balise += "<html:option value=\""+list.getElements().get(j).getValue()+"\">";
  			balise +=list.getElements().get(j).getValue()+"</html:option>";

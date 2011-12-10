@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link webapp.FormPage#getSuccessTarget <em>Success Target</em>}</li>
  *   <li>{@link webapp.FormPage#getErrorTarget <em>Error Target</em>}</li>
  *   <li>{@link webapp.FormPage#getControls <em>Controls</em>}</li>
+ *   <li>{@link webapp.FormPage#isPersist <em>Persist</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,5 +95,31 @@ public interface FormPage extends Page {
 	 * @generated
 	 */
 	EList<Control> getControls();
+
+	/**
+	 * Returns the value of the '<em><b>Persist</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Persist</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persist</em>' attribute.
+	 * @see #setPersist(boolean)
+	 * @see webapp.WebappPackage#getFormPage_Persist()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isPersist();
+
+	/**
+	 * Sets the value of the '{@link webapp.FormPage#isPersist <em>Persist</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Persist</em>' attribute.
+	 * @see #isPersist()
+	 * @generated
+	 */
+	void setPersist(boolean value);
 
 } // FormPage

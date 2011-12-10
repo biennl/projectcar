@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+<form-beans>
+<form-bean name="addContactValidationForm" type="actionForms.AddContactValidationForm"/>
+<form-bean name="updateContactValidationForm" type="actionForms.UpdateContactValidationForm"/>
+<form-bean name="deleteContactValidationForm" type="actionForms.DeleteContactValidationForm"/>
+<form-bean name="loginValidationForm" type="actionForms.LoginValidationForm"/>
+
+</form-beans>
+<action-mappings>
+
+ <action path="/addContactLink" forward ="/pages/addContact.jsp" />
+ <action path="/updateContactLink" forward ="/pages/updateContact.jsp" />
+ <action path="/deleteContactLink" forward ="/pages/deleteContact.jsp" />
+<action path="/addContact" type="servlets.AddContactAction" input="/pages/addContact.jsp" name="addContactValidationForm" scope="request" > 
+ <forward name="successAddContact" path ="/pages/successAddContact.jsp" />
+ <forward name="error" path ="/pages/error.jsp" />
+</action>
+<action path="/updateContact" type="servlets.UpdateContactAction" input="/pages/updateContact.jsp" name="updateContactValidationForm" scope="request" > 
+ <forward name="success" path ="/pages/success.jsp" />
+ <forward name="error" path ="/pages/error.jsp" />
+</action>
+<action path="/deleteContact" type="servlets.DeleteContactAction" input="/pages/deleteContact.jsp" name="deleteContactValidationForm" scope="request" > 
+ <forward name="success" path ="/pages/success.jsp" />
+ <forward name="error" path ="/pages/error.jsp" />
+</action>
+<action path="/login" type="servlets.LoginAction" input="/pages/login.jsp" name="loginValidationForm" scope="request" > 
+ <forward name="main" path ="/pages/main.jsp" />
+ <forward name="error" path ="/pages/error.jsp" />
+</action>
+</action-mappings>
+
+
+
+<!-- ========== message file =========================== -->
+<message-resources parameter="Resources" />
+</struts-config>

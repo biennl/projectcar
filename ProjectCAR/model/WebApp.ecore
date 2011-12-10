@@ -14,6 +14,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="errorTarget" eType="#//Page"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" lowerBound="1"
         upperBound="-1" eType="#//Control" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persist" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NormalPage" eSuperTypes="#//Page">
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
@@ -28,7 +30,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
         eType="#//Page"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SubmitButton" eSuperTypes="#//Control #//FormButton"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextBox" eSuperTypes="#//Control">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -44,8 +45,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Control">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
+        upperBound="-1" eType="#//ListElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//Control">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -72,4 +73,5 @@
     <eLiterals name="DayMonthYear" literal="ddmmyyyy"/>
     <eLiterals name="YearMonthDay" value="1" literal="yyyymmdd"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubmitButton" eSuperTypes="#//FormButton"/>
 </ecore:EPackage>

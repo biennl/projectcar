@@ -10,7 +10,7 @@
   <pages xsi:type="webapp:NormalPage" name="success" title="Success!">
     <controls xsi:type="webapp:Label" id="1" name="lbInfo" text="Your action has been done successfully!"/>
   </pages>
-  <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.6" errorTarget="//@pages.1">
+  <pages xsi:type="webapp:FormPage" name="addContact" title="Creation Contact" successTarget="//@pages.6" errorTarget="//@pages.1" persist="true">
     <controls xsi:type="webapp:Label" id="1" name="lbID" text="Contact ID"/>
     <controls xsi:type="webapp:TextBox" id="2" name="tbID" text="" maxLength="30" size="30" required="true"/>
     <controls xsi:type="webapp:Label" id="3" name="lbFirstName" text="First Name"/>
@@ -22,8 +22,10 @@
     <controls xsi:type="webapp:Label" id="1" name="lbdatenaissance" text="Date naissance"/>
     <controls xsi:type="webapp:DateBox" id="1" name="tbDateNaissance" maxLength="12" size="8"/>
     <controls xsi:type="webapp:Label" id="a" name="sexe" text="Sex"/>
-    <controls xsi:type="webapp:RadioButton" id="a" name="sexe" value="s" text="Male"/>
-    <controls xsi:type="webapp:RadioButton" id="d" name="female" value="f" text="Female"/>
+    <controls xsi:type="webapp:RadioButton" id="a" name="sexe">
+      <elements value="Male"/>
+      <elements value="Female"/>
+    </controls>
     <controls xsi:type="webapp:Label" id="f" name="marrie" text="Maried"/>
     <controls xsi:type="webapp:CheckBox" id="g" name="married" text="Married"/>
     <controls xsi:type="webapp:Label" id="h" name="niveau" text="niveau"/>
